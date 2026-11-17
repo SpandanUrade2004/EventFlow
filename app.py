@@ -142,7 +142,7 @@ def push_simulated_data(num_records, event_names, profile="Realistic"):
     success, msg = init_firebase()
     if not success:
         st.error(f"Firebase Connection Failed: {msg}")
-        return
+        return False
     db = firestore.client()
 
     with st.status(f"🛠️ Simulation Engine ({profile})...", expanded=True) as status:
@@ -172,9 +172,12 @@ def push_simulated_data(num_records, event_names, profile="Realistic"):
             now = datetime.now(timezone.utc).isoformat()
             pd.DataFrame([{**r, "Timestamp": now} for r in records]).to_csv("eventflow_simulated_data.csv",
                                                                            index=False)
-            status.update(label=f"✅ Noise-Injected Pipeline Refreshed!", state="complete")
+            status.update(label="✅ Noise-Injected Pipeline Refreshed!", state="complete")
+            return True
         except Exception as e:
+            status.update(label="❌ Regeneration failed", state="error")
             st.error(f"Push Error: {e}")
+            return False
 
 
 # --- 4. DATA EXTRACTION, CLEANING & FEATURE ENGINEERING ---
@@ -240,9 +243,10 @@ def get_processed_data(source_preference):
     analyzer = SentimentIntensityAnalyzer()
 
     def analyze_row(row):
-        text = row['Cleaned_Feedback']
-        if text == "no comment provided": return 0, "Neutral", np.nan
-        score = analyzer.polarity_scores(text)['compound']
+        if row['Cleaned_Feedback'] == "no comment provided": return 0, "Neutral", np.nan
+        # VADER is scored on the ORIGINAL text: it uses punctuation ("!!") and capitalisation
+        # as intensity cues, so the normalised Cleaned_Feedback would weaken its scores.
+        score = analyzer.polarity_scores(str(row['Feedback_Text']))['compound']
         label = "Positive" if score >= 0.05 else ("Negative" if score <= -0.05 else "Neutral")
         rating = row['Rating']
         # Consistency Logic (Rating vs Sentiment). Rows without a rating can't be checked,
@@ -284,10 +288,17 @@ with st.sidebar.expander("⚙️ Simulation Config", expanded=False):
     num_to_gen = st.slider("Total Records", 100, 2000, 600)
     event_list_raw = st.text_area("Events List", "AI Workshop, Cloud Hackathon, Music Fest, Startup Pitch, Career Fair")
     sim_profile = st.selectbox("Sentiment Logic", ["Realistic", "Positive", "Critical"])
-    if st.button("🚀 Wipe & Regenerate Data"):
-        push_simulated_data(num_to_gen, [x.strip() for x in event_list_raw.split(",")], sim_profile)
-        st.cache_data.clear()
-        st.rerun()
+    st.warning("This permanently deletes **every document** in the Firestore `Registrations_Feedback` "
+               "collection and overwrites the local CSV. It cannot be undone.")
+    confirm_wipe = st.checkbox("I understand, delete the existing data")
+    if st.button("🚀 Wipe & Regenerate Data", disabled=not confirm_wipe):
+        events = [x.strip() for x in event_list_raw.split(",") if x.strip()]
+        if not events:
+            st.error("Enter at least one event name.")
+        # Only rerun on success, otherwise the rerun would immediately hide the error message.
+        elif push_simulated_data(num_to_gen, events, sim_profile):
+            st.cache_data.clear()
+            st.rerun()
 
 # --- 6. EXECUTIVE INSIGHT PANEL ---
 if not df.empty:
@@ -399,16 +410,27 @@ if not df.empty:
             """)
 
         with c_corr:
-            st.write("**Correlation: Rating vs Sentiment**")
-            # Analytical proof of NLP validity
-            corr_val = event_stats[['Avg_Rating', 'Avg_Sentiment']].corr().iloc[0, 1]
-            st.metric("Correlation Coefficient", f"{corr_val:.3f}",
-                      help="Closer to 1 means the AI mood perfectly matches the star ratings.")
-
-            # Scatter with trendline
-            fig_corr = px.scatter(event_stats, x="Avg_Sentiment", y="Avg_Rating", trendline="ols",
-                                  title="Validation: Mood vs. Rating")
-            st.plotly_chart(fig_corr, width="stretch")
+            st.write("**Correlation: Rating vs Sentiment (per response)**")
+            # Computed over individual rated comments. Correlating the per-event averages would
+            # use only one point per event, far too few for a meaningful coefficient.
+            scored = df[(df['Attended'] == True) & df['Rating'].notna()
+                        & (df['Cleaned_Feedback'] != "no comment provided")]
+            if len(scored) >= 10:
+                # Spearman = Pearson on ranks; suits a 1-5 ordinal rating (no SciPy needed).
+                spearman = scored['Rating'].rank().corr(scored['Senti_Score'].rank())
+                pearson = scored['Rating'].corr(scored['Senti_Score'])
+                m1, m2 = st.columns(2)
+                m1.metric("Spearman ρ", f"{spearman:.3f}",
+                          help="Rank correlation between star rating and comment sentiment. "
+                               "+1 = sentiment always rises with the rating; 0 = no relationship.")
+                m2.metric("Pearson r", f"{pearson:.3f}", help="Linear correlation, shown for reference.")
+                st.caption(f"Based on {len(scored):,} individual rated comments.")
+                fig_corr = px.box(scored.assign(Rating=scored['Rating'].astype(int)), x="Rating", y="Senti_Score", title="Comment Sentiment by Star Rating",
+                                  labels={"Rating": "Star rating", "Senti_Score": "VADER compound score"},
+                                  category_orders={"Rating": [1, 2, 3, 4, 5]})
+                st.plotly_chart(fig_corr, width="stretch")
+            else:
+                st.info("Not enough rated comments to compute a correlation (need at least 10).")
 
     with tab3:
         st.subheader("AI Mood Validation (Consistency Check)")
@@ -417,8 +439,15 @@ if not df.empty:
         **How we validate the data:**
         We use a Natural Language Processing (NLP) AI model called VADER to read the attendees' written comments. We then compare the "emotional mood" of their writing with the numerical "star rating" they clicked. 
 
-        If the match rate is high, it proves that our feedback system is capturing genuine sentiment rather than random clicks or rushed form submissions.
+        A response counts as consistent when a 4–5 star rating comes with positive text, a 1–2 star rating with
+        negative text, or a 3 star rating with text that isn't strongly positive or negative. Responses with no
+        rating or no comment are left out.
+
+        A high match rate suggests ratings and comments tell the same story; a low one flags responses worth reading
+        by hand. It is a sanity check, not proof: VADER misreads sarcasm and domain-specific wording.
         """)
+        st.caption("On data from the built-in simulator, about 10% of comments are deliberately written to "
+                   "contradict their rating, so the match rate there mostly reflects that injected noise.")
 
         col_pie, col_bar = st.columns(2)
         with col_pie:
@@ -436,12 +465,13 @@ if not df.empty:
         st.markdown(
             "This compares how we execute highly technical workshops versus general networking events, helping accurately allocate future budgets and resources.")
 
-        seg_stats = event_stats.groupby('Event_Type').agg({
-            'Total_Reg': 'sum',
-            'Total_Att': 'sum',
-            'Avg_Rating': 'mean',
-            'Avg_Sentiment': 'mean'
-        }).reset_index()
+        # Aggregate from individual rows so each response counts equally
+        # (averaging the per-event averages would over-weight small events).
+        attendees = df[df['Attended'] == True]
+        seg_stats = df.groupby('Event_Type').agg(Total_Reg=('Attended', 'count'),
+                                                 Total_Att=('Attended', 'sum')).join(
+            attendees.groupby('Event_Type').agg(Avg_Rating=('Rating', 'mean'),
+                                                Avg_Sentiment=('Senti_Score', 'mean'))).reset_index()
         seg_stats['Agg_Engagement'] = (seg_stats['Total_Att'] / seg_stats['Total_Reg']) * 100
 
         c_seg1, c_seg2 = st.columns(2)
@@ -461,25 +491,36 @@ if not df.empty:
 
         st.markdown("""
         ### The Technical Journey of Your Data
-        To transform raw student feedback into these insights, this dashboard utilizes a 5-step automated pipeline:
+        Every time the dashboard loads, the data goes through these five steps:
 
-        **1. Cloud Ingestion & Simulation**
-        We connect directly to **Firebase Firestore**. The pipeline includes an advanced simulation engine that actively injects "noise" (missing values, mismatched sentiments, and duplicate rows) to test the robustness of our data cleaning logic.
+        **1. Ingestion (and optional simulation)**
+        Records are read from the **Firebase Firestore** collection `Registrations_Feedback` (newest 2,000), falling back
+        to a local CSV if Firestore is unavailable. The sidebar simulator can replace that data with synthetic records
+        that deliberately include noise: missing ratings, comments that contradict their rating, and duplicate rows.
 
-        **2. Intelligent Data Cleaning (Pre-Flight)**
-        Raw data is automatically deduplicated. Text features are normalized (punctuation removal, lowercase casting), and explicit null-handling ensures ratings are only calculated against verified attendees.
+        **2. Cleaning**
+        Exact duplicates (same user, event and comment) are removed. Ratings from people who did not attend are
+        discarded, missing comments are marked "No Comment Provided", and event types are re-derived from event names.
 
-        **3. Feature Engineering**
-        We calculate advanced metrics like **'Drop-off Rate'** (measuring marketing reach vs. actual commitment) and build an **'NLP Alignment'** flag to validate data veracity.
+        **3. Sentiment scoring**
+        **VADER**, a rule-based sentiment model, gives each comment a compound score from −1 (very negative) to +1
+        (very positive). It reads the original text, since punctuation and capitals affect its scores.
 
-        **4. Statistical Validation**
-        We use advanced math to detect outliers. **Standard Deviation** measures experience stability, **Skewness** checks for highly biased minorities, and an **OLS Correlation Trendline** proves the mathematical relationship between structured ratings and unstructured text.
+        **4. Feature engineering**
+        Per event: registrations, attendance, **drop-off rate** (share of registrants who didn't attend), average
+        rating, and average sentiment. Per response: an **alignment flag** recording whether the comment's sentiment
+        agrees with the star rating.
 
-        **5. NLP Sentiment Engine**
-        The VADER NLP model scans unstructured feedback, identifying emotional polarity and assigning a compound score to mathematically validate the user's emotional state against their given rating.
+        **5. Statistics**
+        **Standard deviation** shows how much attendees disagreed about an event; **skewness** shows whether a minority
+        of unusually high or low ratings is pulling the average. A **rank correlation** over individual responses
+        measures how closely comment sentiment tracks star ratings.
+
+        *Limitations:* the data is simulated, so the results show how the pipeline behaves rather than real attendee
+        opinion. Event-level statistics rest on a handful of events, and VADER can misread sarcasm.
         """)
 
-        st.info("**Tech Stack:** Python 3.x, Streamlit, Firebase SDK, VADER (NLP), Statsmodels (Trendlines), Plotly.")
+        st.info("**Tech Stack:** Python 3, Streamlit, Firebase Admin SDK, VADER, pandas, Plotly.")
 
         if last_error: st.error(f"Last Pipeline Alert: {last_error}")
 

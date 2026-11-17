@@ -4,5 +4,4 @@ numpy>=2.0,<3
 firebase-admin>=7.0,<8
 vaderSentiment==3.3.2
 plotly>=6.0,<7
-statsmodels>=0.14,<0.15
 Faker>=30
