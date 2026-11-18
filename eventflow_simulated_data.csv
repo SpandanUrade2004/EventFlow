@@ -1,615 +1,822 @@
-User_ID,Event_Name,Event_Type,Registered,Attended,Rating,Feedback_Text,Timestamp
-ebce4849,Startup Pitch,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-9d0e152c,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-a5dbc00a,Career Fair,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-263a702c,Career Fair,General,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-35addfb8,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-36fb8e09,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-f8adc9f7,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ca88c95f,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-d7819b57,Career Fair,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-f0edd310,Music Fest,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-d6aa5c00,Cloud Hackathon,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-cba733a4,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-29c43fda,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-407c1448,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-bcf6326b,Startup Pitch,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-ebd09236,Startup Pitch,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-71144ede,Startup Pitch,General,True,True,2.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-51e6ad85,Cloud Hackathon,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-0bc416d7,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-716aeaaa,Cloud Hackathon,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-ee58a4d7,Career Fair,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-b858d2f9,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-e8e304c0,Music Fest,General,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-93a11bb8,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-d01d3777,Cloud Hackathon,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-ba73d944,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-f9b73c2c,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-65f9c111,AI Workshop,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-376be603,AI Workshop,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-47f4d1ff,Cloud Hackathon,Technical,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-5c44ca07,Cloud Hackathon,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-ce3abd97,Startup Pitch,General,True,True,1.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-84ccabd1,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-8aae6cfe,AI Workshop,Technical,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-23c4aab9,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-22bd43a7,Career Fair,General,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-5810e198,Music Fest,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-a39b522d,AI Workshop,Technical,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-0b69ac62,Career Fair,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-dd729179,AI Workshop,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-96cc341e,Music Fest,General,True,True,3.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-d3b4e546,Startup Pitch,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-a3497443,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-80ebb44d,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-e8c61b78,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-f36845ae,Startup Pitch,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-f36845ae,Startup Pitch,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-b15b6631,Cloud Hackathon,Technical,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-b6d545bb,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-4883e12e,Music Fest,General,True,True,3.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-5d6c4222,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-8385cd64,Music Fest,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-4847872c,Music Fest,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-cc0d04c3,AI Workshop,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-7aa71e6a,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-c1bcd4ae,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-ee0e7029,Cloud Hackathon,Technical,True,True,1.0,No coordination.,2026-11-18T13:06:04.472033+00:00
-62836ea8,Startup Pitch,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-f33c2691,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-57c4a9c1,Startup Pitch,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-a0767138,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-05906673,AI Workshop,Technical,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-93144304,Music Fest,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-68e69405,Startup Pitch,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-69ca90d4,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-c2797dee,Career Fair,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-6064937a,Career Fair,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-a044b3ef,Career Fair,General,True,True,1.0,No coordination.,2026-11-18T13:06:04.472033+00:00
-c228018c,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-6c89f144,Startup Pitch,General,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-a00e4ff2,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-49e8578b,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-4522cd9b,Career Fair,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-3f2bfe82,Career Fair,General,True,True,,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-8ade91a4,Cloud Hackathon,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-c25e367c,Music Fest,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-b5b0d8ee,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-011bdf2d,Startup Pitch,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-4130231c,Music Fest,General,True,True,,Average experience.,2026-11-18T13:06:04.472033+00:00
-a5b84d56,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-5e9eeb38,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-67bfcd19,Career Fair,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-cc472262,Startup Pitch,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-1f8636d9,Startup Pitch,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-128809b4,Startup Pitch,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-b952f87e,AI Workshop,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-e26f0530,Cloud Hackathon,Technical,True,True,3.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-6b8a730a,Music Fest,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-036bfca5,Music Fest,General,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-875b30b7,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-f8c66413,Career Fair,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-94b0f18d,Career Fair,General,True,True,1.0,No coordination.,2026-11-18T13:06:04.472033+00:00
-f96b53e2,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-e10cb59d,AI Workshop,Technical,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-66a9ec43,Startup Pitch,General,True,True,,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-4afe3ce7,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-910b157b,Career Fair,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-fc704d6f,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-d768701b,Startup Pitch,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-f9f6be9e,Music Fest,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-77180983,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-02f3acf9,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-d7e5a2b1,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-819444ba,Startup Pitch,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-1b332f74,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-ec57c826,Music Fest,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-fa308fca,Cloud Hackathon,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-004317f5,Music Fest,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-004317f5,Music Fest,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-80527434,Music Fest,General,True,True,1.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-5883089e,Cloud Hackathon,Technical,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-224ebf13,Startup Pitch,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-122d54b8,Music Fest,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-395b6d2e,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-249c4bcd,Music Fest,General,True,True,,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-854382db,Music Fest,General,True,True,,Average experience.,2026-11-18T13:06:04.472033+00:00
-4abe8d68,Cloud Hackathon,Technical,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-855fefe3,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-86d9e75d,Startup Pitch,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-302a5503,Career Fair,General,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-8cc14be1,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-a9ec5528,Startup Pitch,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-cd335c94,Cloud Hackathon,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-3d06c84b,Startup Pitch,General,True,True,5.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-5486b5dc,Career Fair,General,True,True,3.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-6f774404,Music Fest,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-cdd0550d,Startup Pitch,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-8537fb6d,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-bd98bed9,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-8204370f,AI Workshop,Technical,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-01b130db,Music Fest,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-cdd00cbc,Cloud Hackathon,Technical,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-f3b8f10a,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-e59ef8a8,Cloud Hackathon,Technical,True,True,4.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-5e858595,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-42784c92,AI Workshop,Technical,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-42784c92,AI Workshop,Technical,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-162edb0a,AI Workshop,Technical,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-23f63273,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-4a358793,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-1dd2a7d8,Music Fest,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-fc5d4fd2,Music Fest,General,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-ba624f1f,Startup Pitch,General,True,True,2.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-4cc0f8be,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-0f1aa233,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-7ed63e9d,Career Fair,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-ec21e19c,AI Workshop,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-36a29e1e,Career Fair,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-65f29a87,Cloud Hackathon,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-2e7dd657,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-6492f358,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-f6d2d71a,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-a57293e7,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-5e3960ec,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-537f54aa,AI Workshop,Technical,True,True,,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-00d0ee3a,Cloud Hackathon,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-ad8bc0ec,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-e7c260f5,Career Fair,General,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-102adc98,Music Fest,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-6fa319b9,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-e9b1804e,Music Fest,General,True,True,4.0,No coordination.,2026-11-18T13:06:04.472033+00:00
-b5e7ec6f,Startup Pitch,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-128a7b94,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-2f9ac036,Career Fair,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-3a8305d9,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-c2da293a,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-377143a0,Startup Pitch,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-a45baa31,Career Fair,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-853cb1e7,AI Workshop,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-b22680ab,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-b2fd26ab,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-56f4395a,Cloud Hackathon,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-15ca30ab,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-8494f7a5,Music Fest,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-131e6156,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-df55956d,AI Workshop,Technical,True,True,2.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-21d45267,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-840e8d77,Music Fest,General,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-d7e68c91,Startup Pitch,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-1a6decc3,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-f1dd5ee1,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-45c45538,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-25c3bc02,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-5acb750a,Cloud Hackathon,Technical,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-aaaf7ac1,Startup Pitch,General,True,True,5.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-0f8c4fd9,Cloud Hackathon,Technical,True,True,1.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-677ef5cd,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-01531b52,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-771381c2,Music Fest,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-5dd3a2d7,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-f421c369,Career Fair,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-b96b2ecc,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-0f987a8b,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-54f42d4c,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-da557224,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-4b44714f,AI Workshop,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-06c96691,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-4520b1ff,AI Workshop,Technical,True,True,1.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-2b74b3df,Music Fest,General,True,True,,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-d85af4e5,Cloud Hackathon,Technical,True,True,,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-eb04123c,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-5f7ee9b3,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-e2f9343e,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-9d12931c,Startup Pitch,General,True,True,3.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-ab3b1bc6,Cloud Hackathon,Technical,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-fbe19e8d,Cloud Hackathon,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-846ce014,AI Workshop,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-330c7f07,Cloud Hackathon,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-05767480,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-d25c0314,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ac1d10b5,AI Workshop,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-a0e761d0,Music Fest,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-67639acd,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-22dbb585,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-7720abf9,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-08a88197,Music Fest,General,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-14d20dee,Startup Pitch,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-e53eeef5,Music Fest,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-57bba78c,Cloud Hackathon,Technical,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-00bf5252,Career Fair,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-9c8de8dd,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-4f3973d1,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-51c04471,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-7472eca4,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-37e7faca,Music Fest,General,True,True,1.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-1f153491,Cloud Hackathon,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-f61a6a12,AI Workshop,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-f2a222d5,Startup Pitch,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-1420adb0,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-2939aa31,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-5b1f6de5,Career Fair,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-76356360,AI Workshop,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-f7fa0477,Cloud Hackathon,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-97b9ef3f,AI Workshop,Technical,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-b85cf154,AI Workshop,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-5d824696,Music Fest,General,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-def138bf,Startup Pitch,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-c46ef080,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-f64fb11a,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-459ef725,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-03a5668a,AI Workshop,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-03a5668a,AI Workshop,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-bf492798,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-a8b29750,Cloud Hackathon,Technical,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-739a856b,Startup Pitch,General,True,True,1.0,No coordination.,2026-11-18T13:06:04.472033+00:00
-8db88053,Startup Pitch,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-13471d2b,Career Fair,General,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-abb8e585,Startup Pitch,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-5c799e29,Music Fest,General,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-2d4fe882,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-54f30718,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-aedafb98,Startup Pitch,General,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-d85e270c,AI Workshop,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-6e665bdf,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-bb12dc72,Music Fest,General,True,True,5.0,No coordination.,2026-11-18T13:06:04.472033+00:00
-484af42b,AI Workshop,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-864feed7,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-66fef7ee,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-6a550126,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-db9efff4,Startup Pitch,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-6152823d,Career Fair,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-b4e80cd6,AI Workshop,Technical,True,True,,Best event ever.,2026-11-18T13:06:04.472033+00:00
-1d5bd9b1,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-b1a326c6,Cloud Hackathon,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-debe44b2,Startup Pitch,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-8d30b3a9,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-ed3960af,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-540e41e9,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-fbf811d2,AI Workshop,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-f28f6841,Music Fest,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-88d8ac2a,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-252289f4,Music Fest,General,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-4d7da688,AI Workshop,Technical,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-b5f7127b,Cloud Hackathon,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-898ae293,Music Fest,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-5cf97f17,Music Fest,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-644d7410,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-9e12c74d,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-c951871f,Cloud Hackathon,Technical,True,True,,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-84ceea87,Cloud Hackathon,Technical,True,True,4.0,Left early.,2026-11-18T13:06:04.472033+00:00
-80919521,Career Fair,General,True,True,,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-fe3c7ae1,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-5ef254fa,Cloud Hackathon,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-d7120caa,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-c638e2a6,AI Workshop,Technical,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-49ca37ce,Startup Pitch,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-69904e79,AI Workshop,Technical,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-89ec6ecc,Cloud Hackathon,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-424cc0ef,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ae2b7792,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-29e14f4d,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-c438e4a6,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-952896be,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-13822b4f,Career Fair,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-e643d18b,Startup Pitch,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-3b62e14d,Startup Pitch,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-a2aa899c,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-24db7db1,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-41b2a92f,Music Fest,General,True,True,4.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-2bf2e250,Startup Pitch,General,True,True,1.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-26a764fd,Career Fair,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-56f6674c,Startup Pitch,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-34035cde,Cloud Hackathon,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-c83ca921,Startup Pitch,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-9a15ead5,Cloud Hackathon,Technical,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-c035caea,Startup Pitch,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-b083d3ab,Cloud Hackathon,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-c19024be,Music Fest,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-197a5b38,Music Fest,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-4ee9ebda,AI Workshop,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-eb0c90a4,Startup Pitch,General,True,True,1.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-b550eeae,Career Fair,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-241d2a66,Career Fair,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-10c95ca4,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-cb9d81be,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-c0a65c5e,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-101a85f1,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ff82422f,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-e4c689b3,Startup Pitch,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-e4c689b3,Startup Pitch,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-f0c4c93f,Music Fest,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-31324d4a,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-2c9114aa,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-b64d356f,Startup Pitch,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-f2bc5c9f,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-f2bc5c9f,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-3f5f6db5,Career Fair,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-e0493635,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-31935883,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-48053719,Music Fest,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-32e1faef,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-3cf89dbb,AI Workshop,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-7b592b72,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-7b592b72,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-4a2c85a8,Cloud Hackathon,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-9f5fd81c,Music Fest,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-2babd2c9,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-45ca45c8,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-1d826b9e,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-cb73d9da,Music Fest,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-6808d803,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-fa98bed2,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-e759b4e8,Startup Pitch,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-0adab6a0,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-a4639337,Music Fest,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-b54a06ab,Cloud Hackathon,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-4abde0da,Startup Pitch,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-e441e9b8,Cloud Hackathon,Technical,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-63635ef9,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-a4b930d7,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-227f8f87,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-5a83b90f,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-da0b06ef,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-317d3fd1,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-edd6297f,AI Workshop,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-27a1f19e,Cloud Hackathon,Technical,True,True,4.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-9134781d,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-c44875fe,Career Fair,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-c5b01b89,AI Workshop,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-d36f9311,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-e14ba39f,Cloud Hackathon,Technical,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-b422d414,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-68f9474f,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-cc114776,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-072181c9,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-2b9233b3,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-1c00e483,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-858c23f5,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-e40590c2,Startup Pitch,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-64045cff,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ccd1b06a,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-b12f5bf5,AI Workshop,Technical,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-2b177876,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-da9227b8,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-057e803c,Cloud Hackathon,Technical,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-ffa349f2,AI Workshop,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-e10b1921,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-1a5afda3,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-23a16f1d,AI Workshop,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-3c6092cb,Music Fest,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-2b2a2772,Music Fest,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-8efe2682,Cloud Hackathon,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-c3161b7a,Cloud Hackathon,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-6b2893cb,Startup Pitch,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-f66623a6,Music Fest,General,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-c0fba0a7,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-f143b610,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-58d5fbfc,Cloud Hackathon,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-d23181b7,Startup Pitch,General,True,True,1.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-3119803d,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-6f48723b,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-e1497129,Music Fest,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-138c03c8,Music Fest,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-ed2efd4c,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-10c269f5,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-5042b6e1,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-10ab767d,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-4be50937,Cloud Hackathon,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-bd20bc3d,AI Workshop,Technical,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-58219e72,Startup Pitch,General,True,True,1.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-c91f909a,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-be82fe85,Startup Pitch,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-2b1687b4,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-9c821e11,Startup Pitch,General,True,True,4.0,Left early.,2026-11-18T13:06:04.472033+00:00
-3b93513b,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-daceb303,Career Fair,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-9f5cea8f,Music Fest,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-5099f324,Cloud Hackathon,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-b68afbec,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ed343c1f,Career Fair,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-94e5e5f8,AI Workshop,Technical,True,True,3.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-50f994cc,Startup Pitch,General,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-5bc1358c,Music Fest,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-5c5a5c04,Music Fest,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-f465fc9c,Startup Pitch,General,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-3a51a88a,Startup Pitch,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-dc3a0526,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-6e99e85b,AI Workshop,Technical,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-5bf18899,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-25054417,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-36c28f13,Cloud Hackathon,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-bb60e6bf,Startup Pitch,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-15a8a4d2,Music Fest,General,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-cf54cfb4,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-d5c6a16f,AI Workshop,Technical,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-b86a38a7,Startup Pitch,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-755765f3,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-96b43b00,Career Fair,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-153ea61e,Startup Pitch,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-41e71287,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-c2a184b1,AI Workshop,Technical,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-ddee78c2,Career Fair,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-15789607,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-59eff1f1,Music Fest,General,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-91409918,Career Fair,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-8402b025,Startup Pitch,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-674d9253,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-83eab90c,Career Fair,General,True,True,4.0,No coordination.,2026-11-18T13:06:04.472033+00:00
-07b12594,Career Fair,General,True,True,1.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-3278ab4c,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-47cae15a,Career Fair,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-168f55bb,Cloud Hackathon,Technical,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-451952d5,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-159cd090,AI Workshop,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-330fddcf,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-80d407d4,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-0fd68435,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-387ecce9,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-52dfe543,Career Fair,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-e3de496e,Cloud Hackathon,Technical,True,True,,Decent.,2026-11-18T13:06:04.472033+00:00
-0b4a216f,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-85f514be,Career Fair,General,True,True,4.0,Left early.,2026-11-18T13:06:04.472033+00:00
-f1ac1780,Cloud Hackathon,Technical,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-d6a2c826,Music Fest,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-e9729a6e,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-19fbb489,AI Workshop,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-33f304ff,AI Workshop,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-3522a73f,Career Fair,General,True,True,3.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-9e62792c,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-75b19027,Career Fair,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-d1d1dd14,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-14c2d194,Cloud Hackathon,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-922f3bce,Music Fest,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-14120f15,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-19e43ed3,Music Fest,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-2dfb2656,Startup Pitch,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-2c08fd61,AI Workshop,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-2def905d,Startup Pitch,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-62f661ea,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-62f661ea,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-6ec7c5be,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-873d962d,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-7a86e4f9,Cloud Hackathon,Technical,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-7472754e,Cloud Hackathon,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-719ff62b,Cloud Hackathon,Technical,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-e843dd58,Career Fair,General,True,True,2.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-67734171,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-29432d9d,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-93bbc683,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-f7b20e59,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-32127292,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-32127292,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-5386d73e,Career Fair,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-7c5d82c8,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-ce0348d8,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-9e7472bb,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-b9a97651,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-45161cf7,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-e373f7b7,Music Fest,General,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-6689cea9,Music Fest,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-066c4926,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-066c4926,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-22646179,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-d041243e,Cloud Hackathon,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-89e50ec0,Career Fair,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-b13ba82a,AI Workshop,Technical,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-f8f0c0ac,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-200b2383,Music Fest,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-ee7bfb37,Cloud Hackathon,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-a0ac34bc,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ae3e8d86,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-886634dc,Startup Pitch,General,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-dd6fe0f9,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-20275a9e,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-5192418e,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-679c09e7,Startup Pitch,General,True,True,1.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-f759f768,AI Workshop,Technical,True,True,3.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-7c8af8fe,Music Fest,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-0649f10a,Career Fair,General,True,True,4.0,Left early.,2026-11-18T13:06:04.472033+00:00
-29c4685e,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-29ad547b,AI Workshop,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-2ab1f459,Music Fest,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-0d88783e,Career Fair,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-4adfd928,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-a2d60730,Music Fest,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-fc05b333,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-fc05b333,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-701e87d5,Music Fest,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-0516d9dc,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-9e2dca9d,Startup Pitch,General,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-c91c790d,Cloud Hackathon,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-1173aec3,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-d4f953b2,Career Fair,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-87148c21,Music Fest,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-87148c21,Music Fest,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-0a013bf3,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-08d8b29c,Career Fair,General,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-49f46f72,AI Workshop,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-4c447895,Career Fair,General,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-bce584db,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-228e8229,Career Fair,General,True,True,4.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-6e1d23a9,AI Workshop,Technical,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-3648c573,Startup Pitch,General,True,True,,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-15c74507,Startup Pitch,General,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-ea1b38dc,Career Fair,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-3adccb4a,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-fcb82519,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-0ab7fe1f,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-2c37a95a,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-69d6bd2c,Music Fest,General,True,True,3.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-76d2ca10,AI Workshop,Technical,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-8ea02105,Career Fair,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-2cb7ae0c,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-08f3c89b,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-b4e02822,Startup Pitch,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-0819d751,Career Fair,General,True,True,3.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-7f8cd7d8,Music Fest,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-96209b20,Music Fest,General,True,True,5.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-d2084bd5,Career Fair,General,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-f2ff0d00,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ecc66492,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-ecc66492,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-1426b01a,AI Workshop,Technical,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-dc440618,Career Fair,General,True,True,1.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-e852f315,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-4878b298,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-4878b298,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-1fbeb892,AI Workshop,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-8d40d40d,Career Fair,General,True,True,3.0,Decent.,2026-11-18T13:06:04.472033+00:00
-4ea26c3f,Music Fest,General,True,True,1.0,Left early.,2026-11-18T13:06:04.472033+00:00
-f0dbc90c,AI Workshop,Technical,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:06:04.472033+00:00
-ee83c271,Cloud Hackathon,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-ccc78672,Cloud Hackathon,Technical,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-b67e45a7,Cloud Hackathon,Technical,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:06:04.472033+00:00
-883a753f,Cloud Hackathon,Technical,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-f21a4858,AI Workshop,Technical,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-06792b06,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-eca1cad0,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-9294e408,AI Workshop,Technical,True,True,5.0,Exceeded all expectations.,2026-11-18T13:06:04.472033+00:00
-7b5b267d,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-386fb16e,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-45ed079e,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-c20b60e9,Music Fest,General,True,True,1.0,Worst event.,2026-11-18T13:06:04.472033+00:00
-a2974d93,Startup Pitch,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-ba994b21,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-259efe85,AI Workshop,Technical,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:06:04.472033+00:00
-874f92b4,Startup Pitch,General,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-6b6f2839,AI Workshop,Technical,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-054f82ad,Music Fest,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-8dcbad6e,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-adbbb98f,Startup Pitch,General,True,True,2.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-274b5ff4,Startup Pitch,General,True,True,2.0,Content didn't match.,2026-11-18T13:06:04.472033+00:00
-e79eed24,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-f46e9017,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-1189faad,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-5be2936b,Cloud Hackathon,Technical,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
-47cfa77d,Career Fair,General,True,True,3.0,"Good topics, poor management.",2026-11-18T13:06:04.472033+00:00
-d34362fe,Cloud Hackathon,Technical,True,True,4.0,Left early.,2026-11-18T13:06:04.472033+00:00
-acf961a7,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-4ace93cb,Startup Pitch,General,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-67a5945f,Cloud Hackathon,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-e7350186,AI Workshop,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-91bbc850,AI Workshop,Technical,True,True,5.0,Total disaster.,2026-11-18T13:06:04.472033+00:00
-59aee197,Cloud Hackathon,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-ffc57260,Music Fest,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-373a90b2,AI Workshop,Technical,True,True,3.0,"It was okay, basic.",2026-11-18T13:06:04.472033+00:00
-5beb93ed,AI Workshop,Technical,True,True,4.0,Learned skills.,2026-11-18T13:06:04.472033+00:00
-687d3b0f,Cloud Hackathon,Technical,True,False,,,2026-11-18T13:06:04.472033+00:00
-490bcf1e,Cloud Hackathon,Technical,True,True,4.0,Solid content and networking.,2026-11-18T13:06:04.472033+00:00
-467b7e13,AI Workshop,Technical,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-2d07c24b,Cloud Hackathon,Technical,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-9aafad90,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-612db7e6,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-83c91100,Cloud Hackathon,Technical,True,True,3.0,Outstanding organization!,2026-11-18T13:06:04.472033+00:00
-17214606,Career Fair,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-9dc3bec9,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-2dc75cf8,Cloud Hackathon,Technical,True,True,3.0,Average experience.,2026-11-18T13:06:04.472033+00:00
-933f978c,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-5479008c,Startup Pitch,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-98f89715,Startup Pitch,General,True,True,2.0,Hard to follow.,2026-11-18T13:06:04.472033+00:00
-e2ed1847,Career Fair,General,True,True,2.0,Waste of time.,2026-11-18T13:06:04.472033+00:00
-22f14670,Career Fair,General,True,True,5.0,Best event ever.,2026-11-18T13:06:04.472033+00:00
-71b973a2,Music Fest,General,True,False,,,2026-11-18T13:06:04.472033+00:00
-250f91a9,Music Fest,General,True,True,4.0,Well organized.,2026-11-18T13:06:04.472033+00:00
+User_ID,Event_Name,Event_Type,Event_Date,Registered,Attended,Rating,Feedback_Text,Timestamp
+17be3111,Music Fest,General,2026-10-31,True,True,,Average experience.,2026-11-18T13:28:37.668455+00:00
+f1533ae8,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+c991603f,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+176132ed,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+176132ed,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+b8225688,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+122c9a56,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+7da67785,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+c2dff335,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+5463adc7,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+550a1b46,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+cf8ebc5a,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+1c11f735,Startup Pitch,General,2026-10-31,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+f89897b9,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+1beaf6ac,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+c333e861,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+d5a804eb,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+7c52fa17,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+cf8d446a,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+a25d6b29,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+7f2984f5,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+4d5c55c7,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+6d7ce3c9,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+b380c73a,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+50c187fc,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+3fe12e47,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+bf780e3f,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+64de82e6,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+40066ff2,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+ae849217,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+d89a40c0,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+43dac043,Cloud Hackathon,Technical,2026-10-29,True,True,,Decent.,2026-11-18T13:28:37.668455+00:00
+22bae10e,Career Fair,General,2026-11-08,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+86a4bae4,Startup Pitch,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+32ffe294,AI Workshop,Technical,2026-10-07,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+ea83bf00,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+da330aa1,AI Workshop,Technical,2026-10-07,True,True,1.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+fcf56188,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+bdc14f1f,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+3ce915e7,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+dc1110c1,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+7bf47042,Music Fest,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+1f15c7b6,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+ebc2026f,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+1b66b5a9,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+d6016237,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+b8976ec5,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+baa4b71a,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+7da67785,Career Fair,General,2026-11-08,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+cbceabde,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+fff9f585,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+d2762bdc,Career Fair,General,2026-11-08,True,True,3.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+3f4b1a70,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+6c6f7633,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+76f72255,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+6a18ce4c,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+e767dcea,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+f22b5b98,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+aba4fc03,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+6808593f,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+4dead645,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+7e695d0d,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+314d3441,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+ebff8d15,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+a7f36ae9,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+27a0c3d7,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+7d137018,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+25440fe0,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+25440fe0,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+98543881,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+b3f6fe0d,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+5876fd09,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+5876fd09,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+67814c1f,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+67814c1f,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+70286046,Music Fest,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+fff9f585,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+fb2ca025,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+70d9c9f8,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+b31022f0,Startup Pitch,General,2026-10-31,True,True,2.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+43cf2fde,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+b77350ca,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+892e6161,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+43cf2fde,AI Workshop,Technical,2026-10-07,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+a79fbfaf,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+ca6dfda1,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+250a4578,Startup Pitch,General,2026-10-31,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+7bf47042,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+2af43ab7,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+10435a10,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+b8225688,AI Workshop,Technical,2026-10-07,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+8fb864e4,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+85c7504b,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+b70b3420,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+11906f50,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+8026695f,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+8b621d41,Career Fair,General,2026-11-08,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+8b621d41,Career Fair,General,2026-11-08,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+b841d0a0,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+5da36f1b,Startup Pitch,General,2026-10-31,True,True,3.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+e0f3eab0,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+18b87245,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+edd877c8,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+f7860b50,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+c754108f,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+87e5f0fe,Music Fest,General,2026-10-31,True,True,5.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+fbf24050,AI Workshop,Technical,2026-10-07,True,True,,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+7d106c60,AI Workshop,Technical,2026-10-07,True,True,2.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+96418ced,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+e11b868d,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+3da70577,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+2defe193,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+a319dcb4,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+11906f50,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+50c187fc,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+0cdf742b,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+a81fdec3,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+aff8754d,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+d289f0ab,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+50f0fd0a,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+ca6dfda1,Startup Pitch,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+cb9bc326,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+fb16e5db,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+6e0d2648,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+c68a152f,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+dc96925e,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+8d4a75b8,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+f86c2ca2,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+486822b9,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+ea1fca65,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+250a4578,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+56febfb9,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+77a6e17c,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+5e187b24,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+15ed6269,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+d97dc9cd,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+56b60afc,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+43dac043,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+0a3450fc,Startup Pitch,General,2026-10-31,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+48729a4d,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+40066ff2,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+89463e85,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+8acd4e10,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+4eea04e7,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+bf2c14a0,Cloud Hackathon,Technical,2026-10-29,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+44b591f7,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+8498e113,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+3ae8cc93,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+deef580f,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+deef580f,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+3a578a8e,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+fbf24050,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+337ea2df,Startup Pitch,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+43e42caf,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+d97dc9cd,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+ef7ddc76,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+6160a6b4,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+6a702e2f,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+c333e861,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+f76c8ede,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+56febfb9,Cloud Hackathon,Technical,2026-10-29,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+45ff2c83,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+ae849217,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+d89a40c0,Career Fair,General,2026-11-08,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+c3b290d0,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+12f70c97,Startup Pitch,General,2026-10-31,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+ff01cf99,Music Fest,General,2026-10-31,True,True,5.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+ea1fca65,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+fe049059,Startup Pitch,General,2026-10-31,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+d5704f32,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+5913f9d3,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+4094dded,Career Fair,General,2026-11-08,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+4458a885,Career Fair,General,2026-11-08,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+458f1f19,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+c85aca46,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+3602f8ac,Music Fest,General,2026-10-31,True,True,,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+3602f8ac,Music Fest,General,2026-10-31,True,True,,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+a65ed389,Startup Pitch,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+6b5252e3,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+0c8e29e3,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+9261549d,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+f668a617,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+7d5911c6,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+6b8e869f,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+7e695d0d,AI Workshop,Technical,2026-10-07,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+fb2ca025,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+9f4c3b79,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+3fcb7546,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+89e06ab3,Career Fair,General,2026-11-08,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+747b6dba,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+6a7e4c36,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+006ed6e3,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+85c7504b,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+6a7e4c36,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+14822f53,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+78308930,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+2a79ea68,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+6c6f7633,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+762172ed,Career Fair,General,2026-11-08,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+e0c53cb8,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+f206c269,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+ffd0f9d5,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+6b8e869f,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+ce9ff57f,Career Fair,General,2026-11-08,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+097a1e10,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+196f4dfa,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+22bd3388,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+7922bac2,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+6703b636,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+a5cb63a2,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+ff9ab5c2,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+96229348,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+b966442a,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+1bc044fc,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+81fb18b3,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+81fb18b3,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+a66fd7f7,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+1c8eaee9,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+746f7891,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+ba81edd9,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+8026695f,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+8498e113,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+90e0a95b,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+d045dd1c,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+d045dd1c,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+6b5252e3,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+d9acd158,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+28711733,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+7f2984f5,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+3da70577,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+6703b636,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+dc98d2c1,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+2790cebd,Startup Pitch,General,2026-10-31,True,True,3.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+d4aac9a3,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+bb7bee03,Startup Pitch,General,2026-10-31,True,True,2.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+2defe193,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+22bae10e,Startup Pitch,General,2026-10-31,True,True,,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+14822f53,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+3f4b1a70,Startup Pitch,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+b966442a,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+f6ca6b8b,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+1beaf6ac,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+2f65fafa,Career Fair,General,2026-11-08,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+50f0fd0a,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+d7c524a5,Career Fair,General,2026-11-08,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+79ac1b1e,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+749176f4,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+b45ed1f0,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+bef59fe6,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+a3917c99,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+9be578c7,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+73991a47,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+13d5f2f7,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+46b82659,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+a21150f9,Music Fest,General,2026-10-31,True,True,4.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+b8976ec5,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+464458b4,Career Fair,General,2026-11-08,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+6160a6b4,Career Fair,General,2026-11-08,True,True,,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+43dac043,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+d9d80b8d,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+892e6161,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+1933918c,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+746cdb77,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+27a0c3d7,Cloud Hackathon,Technical,2026-10-29,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+90164161,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+5edb0d3c,Music Fest,General,2026-10-31,True,True,3.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+5e187b24,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+a65bb1f2,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+17d2582e,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+17d2582e,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+f071d879,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+5bd20c98,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+b3a7d0e0,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+44777442,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+176132ed,Music Fest,General,2026-10-31,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+38f16a81,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+f396ea37,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+14aeaf5c,Cloud Hackathon,Technical,2026-10-29,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+30b187ef,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+d9acd158,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+6a7e4c36,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+92f837d4,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+196f4dfa,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+df547e50,Career Fair,General,2026-11-08,True,True,,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+cf8d446a,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+b841d0a0,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+da7b9095,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+060edf5b,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+6c52c49f,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+4eb93eff,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+ac3c5640,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+38f16a81,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+1efa2197,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+bdf070aa,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+d1bdb8c0,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+03902c5d,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+7de1bdfe,Startup Pitch,General,2026-10-31,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+be055787,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+1efd76e9,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+ceb81f9d,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+76f72255,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+bee3eb79,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+f7fd5646,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+e4347d51,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+92698698,Music Fest,General,2026-10-31,True,True,5.0,Left early.,2026-11-18T13:28:37.668455+00:00
+90164161,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+11b7e948,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+5e9953d2,Startup Pitch,General,2026-10-31,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+15eabb27,Startup Pitch,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+12f70c97,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+73991a47,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+0ea2622b,Startup Pitch,General,2026-10-31,True,True,2.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+304b8590,AI Workshop,Technical,2026-10-07,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+be055787,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+6d4067f4,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+c28ebd70,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+350843f0,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+0c8e29e3,Career Fair,General,2026-11-08,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+1933918c,Career Fair,General,2026-11-08,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+0658663a,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+ce9ff57f,Startup Pitch,General,2026-10-31,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+6c6fa611,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+5e9953d2,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+9efba58b,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+fa5a91ca,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+8d605936,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+a81fdec3,Cloud Hackathon,Technical,2026-10-29,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+faf14ff0,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+ac1aa554,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+d1846c39,Music Fest,General,2026-10-31,True,True,,Average experience.,2026-11-18T13:28:37.668455+00:00
+5e187b24,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+fec21bbe,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+203c8c25,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+350843f0,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+cfd01cbd,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+a66fd7f7,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+f86c2ca2,AI Workshop,Technical,2026-10-07,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+8d605936,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+4b8c5bdc,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+b4d7e28e,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+546e035a,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+7900f7f9,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+46b82659,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+d453dd32,Career Fair,General,2026-11-08,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+70d9c9f8,Startup Pitch,General,2026-10-31,True,True,2.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+dfcaf0b7,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+04f64d86,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+4104a8b5,Startup Pitch,General,2026-10-31,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+3fe12e47,Startup Pitch,General,2026-10-31,True,True,3.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+6808593f,Career Fair,General,2026-11-08,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+1bac5c15,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+57207246,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+94e0d3ba,AI Workshop,Technical,2026-10-07,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+29d4beef,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+f366bad4,AI Workshop,Technical,2026-10-07,True,True,1.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+76f72255,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+550a1b46,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+6d4067f4,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+a7cad415,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+98543881,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+bee3eb79,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+95863a76,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+203c8c25,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+a81fdec3,Career Fair,General,2026-11-08,True,True,,Decent.,2026-11-18T13:28:37.668455+00:00
+89e06ab3,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+00257ad1,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+56febfb9,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+56b60afc,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+8ae769ed,Startup Pitch,General,2026-10-31,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+dd56cc94,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+b0cbc61f,Startup Pitch,General,2026-10-31,True,True,,Decent.,2026-11-18T13:28:37.668455+00:00
+25c61c45,AI Workshop,Technical,2026-10-07,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+74daaebf,Career Fair,General,2026-11-08,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+e9a1fa6f,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+52c21221,Career Fair,General,2026-11-08,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+5e9953d2,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+7d137018,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+402adf9c,Career Fair,General,2026-11-08,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+74daaebf,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+de53790a,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+b3f6fe0d,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+73991a47,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+6105716b,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+12922f83,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+48729a4d,Startup Pitch,General,2026-10-31,True,True,3.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+cd5f4822,Career Fair,General,2026-11-08,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+5da36f1b,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+a9434aa0,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+986f9025,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+bbda0242,AI Workshop,Technical,2026-10-07,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+d5a804eb,Music Fest,General,2026-10-31,True,True,4.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+81fb18b3,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+c9af18f8,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+747b6dba,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+3531968d,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+f6ca6b8b,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+75d66ed4,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+006ed6e3,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+ebff8d15,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+c7b5b2bc,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+464458b4,Music Fest,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+464458b4,Music Fest,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+746f7891,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+da330aa1,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+b0cbc61f,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+f6802cdb,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+03cde2e3,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+8b621d41,AI Workshop,Technical,2026-10-07,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+71710434,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+4d5c55c7,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+ff5e9ff0,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+15eabb27,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+3a578a8e,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+0a3450fc,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+00257ad1,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+aba4fc03,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+5913f9d3,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+ac3c5640,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+bf2c14a0,AI Workshop,Technical,2026-10-07,True,True,3.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+a07295e9,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+90604f62,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+44b591f7,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+bea4ff31,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+ad81f8bd,AI Workshop,Technical,2026-10-07,True,True,1.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+1c11f735,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+568cc69b,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+93f277cc,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+99b479d4,Music Fest,General,2026-10-31,True,True,,Average experience.,2026-11-18T13:28:37.668455+00:00
+98543881,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+d85c16bd,AI Workshop,Technical,2026-10-07,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+f79efd70,Cloud Hackathon,Technical,2026-10-29,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+1c8eaee9,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+f76c8ede,AI Workshop,Technical,2026-10-07,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+3531968d,Startup Pitch,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+0bc61066,Music Fest,General,2026-10-31,True,True,,Best event ever.,2026-11-18T13:28:37.668455+00:00
+a9ab364a,AI Workshop,Technical,2026-10-07,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+a2b5b498,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+4f2d4796,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+610461e3,Career Fair,General,2026-11-08,True,True,5.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+a93b12cd,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+1bb43332,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+da7b9095,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+00257ad1,Startup Pitch,General,2026-10-31,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+2260e70f,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+0a3450fc,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+22bae10e,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+25440fe0,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+6712303a,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+8e944239,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+96418ced,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+a5cb63a2,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+2d06e8cf,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+715629ee,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+c012a0ff,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+ef7ddc76,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+7d106c60,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+8bcf53a1,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+f96b648a,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+6808593f,AI Workshop,Technical,2026-10-07,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+5408f9ac,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+6808593f,Music Fest,General,2026-10-31,True,True,,Average experience.,2026-11-18T13:28:37.668455+00:00
+c991603f,Music Fest,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+bfbbb17f,Startup Pitch,General,2026-10-31,True,True,,Average experience.,2026-11-18T13:28:37.668455+00:00
+2c7f0b79,AI Workshop,Technical,2026-10-07,True,True,3.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+14aeaf5c,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+9bdf0377,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+3ff350bf,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+6c006f61,Career Fair,General,2026-11-08,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+bbda0242,Startup Pitch,General,2026-10-31,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+25c61c45,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+25440fe0,Music Fest,General,2026-10-31,True,True,5.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+af908e3c,Career Fair,General,2026-11-08,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+00e85ece,Startup Pitch,General,2026-10-31,True,True,1.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+a21150f9,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+43e458fc,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+c72c1fe3,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+a2bc372f,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+41357e8c,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+b289f224,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+5bd20c98,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+60e7a113,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+95d82980,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+cfd01cbd,AI Workshop,Technical,2026-10-07,True,True,1.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+8c99a894,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+9c96e9ec,Music Fest,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+57207246,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+71316269,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+7f2984f5,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+bfbbb17f,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+bbda0242,Career Fair,General,2026-11-08,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+6b44fa8d,Startup Pitch,General,2026-10-31,True,True,,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+43e458fc,Career Fair,General,2026-11-08,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+5ec42e08,Career Fair,General,2026-11-08,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+fb2ca025,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+92f837d4,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+b380c73a,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+e11b868d,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+f0e98b3b,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+24a35cf2,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+c96b5edb,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+402adf9c,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+d9441fa5,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+fe2110d0,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+3ce915e7,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+56c438e4,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+1b494e15,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+1bbc91f7,Music Fest,General,2026-10-31,True,True,,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+02f06b90,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+300568d2,Startup Pitch,General,2026-10-31,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+9f4c3b79,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+9b689c88,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+e61fecc0,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+df6a8f93,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+fa02eaec,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+6c6fa611,Music Fest,General,2026-10-31,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+deef580f,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+12f70c97,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+d499da99,Music Fest,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+faf14ff0,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+40066ff2,Career Fair,General,2026-11-08,True,True,,Decent.,2026-11-18T13:28:37.668455+00:00
+12c136e0,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+71316269,Music Fest,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+30b187ef,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+3a9bedd4,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+3a9bedd4,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+48729a4d,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+7d106c60,Startup Pitch,General,2026-10-31,True,True,,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+364d7c87,Startup Pitch,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+c754108f,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+ff01cf99,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+4f2d4796,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+03cde2e3,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+e059a0ee,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+45b89cd9,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+d9441fa5,Career Fair,General,2026-11-08,True,True,3.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+cd5f4822,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+70286046,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+001a9a8b,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+250a4578,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+2790cebd,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+66aa9385,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+66aa9385,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+2095eef6,Startup Pitch,General,2026-10-31,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+f1533ae8,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+fa5a91ca,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+a9ab364a,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+f3579560,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+29d4beef,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+8a16a06c,AI Workshop,Technical,2026-10-07,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+1745d6d8,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+4458a885,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+2bcfbe01,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+d2e82f38,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+5408f9ac,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+31b1b099,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+43cf2fde,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+1bac5c15,Startup Pitch,General,2026-10-31,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+6b5252e3,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+ad81f8bd,Music Fest,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+4094dded,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+3da70577,Career Fair,General,2026-11-08,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+60e7a113,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+c40db9b4,Startup Pitch,General,2026-10-31,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+12f70c97,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+8498e113,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+fa02eaec,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+d85c16bd,Career Fair,General,2026-11-08,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+0cdf742b,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+9c96e9ec,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+b8976ec5,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+284d82e5,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+baa4b71a,Startup Pitch,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+4104a8b5,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+10d08d11,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+9bdf0377,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+8d605936,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+57207246,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+faf14ff0,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+118405ad,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+df6a8f93,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+e1805081,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+715629ee,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+fe716b14,Career Fair,General,2026-11-08,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+ba81edd9,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+1933918c,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+dea45c19,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+4458a885,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+1b494e15,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+f668a617,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+d9d80b8d,Career Fair,General,2026-11-08,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+1beaf6ac,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+1beaf6ac,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+cf36d58b,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+a5769411,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+aa0b7b14,Startup Pitch,General,2026-10-31,True,True,3.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+15b52908,Music Fest,General,2026-10-31,True,True,,Average experience.,2026-11-18T13:28:37.668455+00:00
+15b52908,Music Fest,General,2026-10-31,True,True,,Average experience.,2026-11-18T13:28:37.668455+00:00
+d4aac9a3,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+8a0f4efb,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+c012a0ff,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+45241ea6,Startup Pitch,General,2026-10-31,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+2cf6bf75,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+4104a8b5,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+6cd5e859,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+4944051b,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+2260e70f,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+c333e861,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+60e7a113,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+ce7607ad,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+7a9e8eef,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+10d08d11,Career Fair,General,2026-11-08,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+e61fecc0,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+38ab854c,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+68586eba,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+17be3111,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+52c21221,Cloud Hackathon,Technical,2026-10-29,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+5d3d9e56,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+88bd13d1,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+12c136e0,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+71316269,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+c96b5edb,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+7a9e8eef,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+b8f21423,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+df465290,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+f89897b9,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+b841d0a0,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+f512c4c3,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+48729a4d,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+dc98d2c1,Career Fair,General,2026-11-08,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+b04d3376,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+1b66b5a9,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+1bb43332,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+9261549d,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+aa0b7b14,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+3875394c,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+9261549d,Startup Pitch,General,2026-10-31,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+782a65e0,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+4eea04e7,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+f76c8ede,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+610461e3,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+1f15c7b6,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+746cdb77,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+2c7f0b79,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+9b3080d5,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+a2f963a3,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+a0d4de3d,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+a0d4de3d,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+15b52908,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+3c365296,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+e5af6e39,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+e5af6e39,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+8a476a87,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+8acd4e10,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+d89a40c0,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+3875394c,AI Workshop,Technical,2026-10-07,True,True,2.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+0658663a,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+6c6f7633,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+7e695d0d,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+fd72b050,Startup Pitch,General,2026-10-31,True,True,1.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+f8102383,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+c083b73a,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+f3579560,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+a5e5a5ab,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+b77350ca,Music Fest,General,2026-10-31,True,True,5.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+a9e782d4,Startup Pitch,General,2026-10-31,True,True,2.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+f7860b50,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+0267deb3,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+c7b5b2bc,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+5876fd09,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+e3e9de99,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+e3e9de99,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+5fd23109,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+a9ab364a,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+a2f963a3,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+560c95ee,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+560c95ee,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+747b6dba,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+d918b3e5,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+4eb93eff,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+1f15c7b6,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+1f15c7b6,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+a2bc372f,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+27a0c3d7,Startup Pitch,General,2026-10-31,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+fa02eaec,AI Workshop,Technical,2026-10-07,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+060edf5b,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+ffd0f9d5,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+4fdc6e1b,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+d2762bdc,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+b888f6ed,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+57207246,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+00b9d4a3,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+c333e861,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+c68a152f,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+cfb87e6f,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+b118f68d,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+45ff2c83,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+bfbbb17f,Career Fair,General,2026-11-08,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+8ce21ea3,Startup Pitch,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+5edb0d3c,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+4d0b0d1a,Career Fair,General,2026-11-08,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+ff9ab5c2,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+663f1c97,Music Fest,General,2026-10-31,True,True,4.0,"Very good session, well worth it.",2026-11-18T13:28:37.668455+00:00
+a6a27967,AI Workshop,Technical,2026-10-07,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+986f9025,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+24a35cf2,Music Fest,General,2026-10-31,True,True,5.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+93f277cc,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+90164161,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+61484bb3,Career Fair,General,2026-11-08,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+61484bb3,Career Fair,General,2026-11-08,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+b4d7e28e,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+610461e3,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+78308930,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+8d1fb540,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+15eabb27,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+d2762bdc,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+f6ca6b8b,AI Workshop,Technical,2026-10-07,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+f6ca6b8b,AI Workshop,Technical,2026-10-07,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+d8f56413,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+6d4067f4,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+bfbbb17f,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+88bd13d1,Career Fair,General,2026-11-08,True,True,3.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+892e6161,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+7bb38605,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+95863a76,Music Fest,General,2026-10-31,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+e767dcea,Startup Pitch,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+060edf5b,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+3531968d,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+5283aac7,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+5edb0d3c,AI Workshop,Technical,2026-10-07,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+1a16342c,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+2790cebd,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+e11b868d,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+9be578c7,Startup Pitch,General,2026-10-31,True,True,1.0,Total disaster.,2026-11-18T13:28:37.668455+00:00
+fd72b050,AI Workshop,Technical,2026-10-07,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+85d51695,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+e4347d51,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+a2086977,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+20500494,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+45b89cd9,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+486822b9,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+10d08d11,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+9f4c3b79,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+99b479d4,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+bef59fe6,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+6a39aaa6,AI Workshop,Technical,2026-10-07,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+1f15c7b6,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+71316269,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+a79ac9aa,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+486822b9,AI Workshop,Technical,2026-10-07,True,True,2.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+4eea04e7,Music Fest,General,2026-10-31,True,True,5.0,Best event ever.,2026-11-18T13:28:37.668455+00:00
+a43825b5,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+2bcfbe01,Career Fair,General,2026-11-08,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+96418ced,Startup Pitch,General,2026-10-31,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+6a702e2f,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+a3917c99,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+3ce915e7,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00
+fec21bbe,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+df615a5c,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+da7b9095,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+a2bc372f,AI Workshop,Technical,2026-10-07,True,True,1.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+3da70577,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+faf14ff0,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+ceb81f9d,Music Fest,General,2026-10-31,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+23c86d30,Music Fest,General,2026-10-31,True,True,5.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+fb16e5db,AI Workshop,Technical,2026-10-07,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+b8225688,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+d2e82f38,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+1b049863,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+98543881,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+a7f36ae9,Career Fair,General,2026-11-08,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+ce9ff57f,AI Workshop,Technical,2026-10-07,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+aff8754d,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+d289f0ab,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+bde13c1b,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+64de82e6,Startup Pitch,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+b3ee4d3b,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+bf780e3f,Startup Pitch,General,2026-10-31,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+6712303a,Career Fair,General,2026-11-08,True,True,3.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+ce9ff57f,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+8fb864e4,Music Fest,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+8a0f4efb,Music Fest,General,2026-10-31,True,True,4.0,Worst event.,2026-11-18T13:28:37.668455+00:00
+85c7504b,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+e5af6e39,Startup Pitch,General,2026-10-31,True,True,4.0,Left early.,2026-11-18T13:28:37.668455+00:00
+2b840c67,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+2b840c67,Music Fest,General,2026-10-31,True,True,5.0,Outstanding organization!,2026-11-18T13:28:37.668455+00:00
+6a18ce4c,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+fe716b14,Startup Pitch,General,2026-10-31,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+13d5f2f7,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+3a578a8e,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+ebc2026f,Startup Pitch,General,2026-10-31,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+f7860b50,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+8e46d534,Music Fest,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+44777442,Career Fair,General,2026-11-08,True,True,4.0,Well organized.,2026-11-18T13:28:37.668455+00:00
+a76afde6,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+8186a576,Music Fest,General,2026-10-31,True,True,,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+c3b290d0,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+40066ff2,Startup Pitch,General,2026-10-31,True,False,,,2026-11-18T13:28:37.668455+00:00
+8e46d534,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+3aa2e4f9,AI Workshop,Technical,2026-10-07,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+ce7607ad,Cloud Hackathon,Technical,2026-10-29,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+89c5b31a,AI Workshop,Technical,2026-10-07,True,True,3.0,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+7900f7f9,AI Workshop,Technical,2026-10-07,True,False,,,2026-11-18T13:28:37.668455+00:00
+cefd1224,Startup Pitch,General,2026-10-31,True,True,2.0,Content didn't match.,2026-11-18T13:28:37.668455+00:00
+43cf2fde,Career Fair,General,2026-11-08,True,True,,"Good topics, poor management.",2026-11-18T13:28:37.668455+00:00
+fd5166e6,Cloud Hackathon,Technical,2026-10-29,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+a9d3d7c7,Cloud Hackathon,Technical,2026-10-29,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+af908e3c,Startup Pitch,General,2026-10-31,True,True,1.0,Left early.,2026-11-18T13:28:37.668455+00:00
+f0e98b3b,Career Fair,General,2026-11-08,True,True,2.0,"Disorganized, crowded.",2026-11-18T13:28:37.668455+00:00
+31c681ec,Startup Pitch,General,2026-10-31,True,True,2.0,Waste of time.,2026-11-18T13:28:37.668455+00:00
+95d82980,Career Fair,General,2026-11-08,True,True,3.0,Average experience.,2026-11-18T13:28:37.668455+00:00
+89463e85,Music Fest,General,2026-10-31,True,True,4.0,Learned skills.,2026-11-18T13:28:37.668455+00:00
+337ea2df,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+3da70577,AI Workshop,Technical,2026-10-07,True,True,3.0,Decent.,2026-11-18T13:28:37.668455+00:00
+629c2ae3,Startup Pitch,General,2026-10-31,True,True,2.0,Hard to follow.,2026-11-18T13:28:37.668455+00:00
+1745d6d8,Startup Pitch,General,2026-10-31,True,True,1.0,No coordination.,2026-11-18T13:28:37.668455+00:00
+86a4bae4,Music Fest,General,2026-10-31,True,True,3.0,"It was okay, basic.",2026-11-18T13:28:37.668455+00:00
+0ea2622b,Career Fair,General,2026-11-08,True,True,4.0,Solid content and networking.,2026-11-18T13:28:37.668455+00:00
+1bb43332,Cloud Hackathon,Technical,2026-10-29,True,False,,,2026-11-18T13:28:37.668455+00:00
+3ceddf2d,Music Fest,General,2026-10-31,True,True,5.0,Exceeded all expectations.,2026-11-18T13:28:37.668455+00:00
+df615a5c,Career Fair,General,2026-11-08,True,False,,,2026-11-18T13:28:37.668455+00:00
+fd72b050,Music Fest,General,2026-10-31,True,True,5.0,The speaker was phenomenal.,2026-11-18T13:28:37.668455+00:00

@@ -1,28 +1,31 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
-import firebase_admin
-from firebase_admin import credentials, firestore
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import plotly.express as px
-import os
-import random
-import uuid
-import json
-import re
-import string
-from collections import Counter
-from datetime import datetime, timedelta, timezone
+"""EventFlow dashboard (Streamlit UI). Analysis logic lives in the `eventflow` package."""
 
-APP_VERSION = "2.0"
+import os
+
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+from eventflow import __version__ as APP_VERSION
+from eventflow import storage
+from eventflow.analytics import (
+    PRIOR_WEIGHT,
+    build_event_stats,
+    rating_sentiment_correlation,
+    returning_share,
+    segment_stats,
+    top_keywords,
+)
+from eventflow.processing import process
+from eventflow.simulation import DEFAULT_EVENTS, PROFILES, generate_records
+from eventflow.storage import FIRESTORE_READ_LIMIT
 
 # --- 1. PAGE CONFIGURATION ---
-st.set_page_config(page_title="EventFlow v2: Event Feedback Analytics Dashboard", layout="wide")
+st.set_page_config(page_title="EventFlow: Event Feedback Analytics Dashboard", layout="wide")
 
 # Custom CSS for a professional "Analyst" look
 st.markdown("""
     <style>
-    .main { background-color: #f8f9fa; }
     .stMetric { background-color: #ffffff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #eee; }
     .insight-card { padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid; min-height: 120px; }
     .success-card { background-color: #d1e7dd; border-left-color: #0f5132; color: #0f5132; }
@@ -36,176 +39,58 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 
-# --- 2. FIREBASE INITIALIZATION ---
-# The service-account key must never live inside the project folder. It is loaded from, in order:
-#   1. Streamlit secrets: a [firebase] table in .streamlit/secrets.toml (or the Streamlit Cloud secrets UI)
-#   2. The file named by the EVENTFLOW_FIREBASE_KEY environment variable
-#   3. ~/.config/eventflow/serviceAccountKey.json
-DEFAULT_KEY_PATH = os.path.expanduser("~/.config/eventflow/serviceAccountKey.json")
-
-
-def _load_firebase_credentials():
+# --- 2. ADMIN MODE ---
+# The simulator wipes Firestore, so it is only shown when explicitly enabled. A deployed copy stays read-only.
+def _admin_mode():
+    if os.environ.get("EVENTFLOW_ADMIN", "").strip().lower() in ("1", "true", "yes"):
+        return True
     try:
-        if "firebase" in st.secrets:
-            return credentials.Certificate(dict(st.secrets["firebase"])), None
+        return bool(st.secrets.get("admin", False))
     except Exception:
-        pass  # No secrets.toml present; fall through to file-based lookup.
-
-    key_path = os.environ.get("EVENTFLOW_FIREBASE_KEY", DEFAULT_KEY_PATH)
-    if not os.path.exists(key_path):
-        return None, (f"No Firebase key found. Add a [firebase] section to .streamlit/secrets.toml, "
-                      f"set EVENTFLOW_FIREBASE_KEY, or place the key at {DEFAULT_KEY_PATH}.")
-    if os.path.getsize(key_path) == 0:
-        return None, f"Key file '{key_path}' is empty."
-    with open(key_path, 'r') as f:
-        json.load(f)
-    return credentials.Certificate(key_path), None
+        return False  # no secrets file
 
 
-def init_firebase():
-    if not firebase_admin._apps:
-        try:
-            cred, err = _load_firebase_credentials()
-            if err:
-                return False, err
-            firebase_admin.initialize_app(cred)
-            return True, "Success"
-        except Exception as e:
-            return False, str(e)
-    return True, "Already Initialized"
+ADMIN_MODE = _admin_mode()
 
 
-# --- 3. ENHANCED NOISY DATA SIMULATION ---
-# Whole-word match so e.g. "Career Fair" is not tagged Technical because "fair" contains "ai".
-TECH_PATTERN = re.compile(r"\b(tech\w*|ai|hack\w*|workshop\w*)\b")
+# --- 3. DATA LOADING ---
+@st.cache_data(ttl=300)
+def get_processed_data(source_preference):
+    df, source_label, error_msg, truncated = pd.DataFrame(), "None", None, False
 
-
-MIXED_BAND = 0.5  # |VADER compound| below this counts as consistent with a 3-star rating
-
-
-def classify_event(event_name):
-    return "Technical" if TECH_PATTERN.search(str(event_name).lower()) else "General"
-
-
-TEMPLATES = {
-    5: ["Outstanding organization!", "The speaker was phenomenal.", "Exceeded all expectations.",
-        "Best event ever."],
-    4: ["Very good session, well worth it.", "Solid content and networking.", "Learned skills.", "Well organized."],
-    3: ["It was okay, basic.", "Average experience.", "Good topics, poor management.", "Decent."],
-    2: ["Disorganized, crowded.", "Content didn't match.", "Waste of time.", "Hard to follow."],
-    1: ["Total disaster.", "Worst event.", "No coordination.", "Left early."]
-}
-
-
-def make_event_profiles(event_names, profile="Realistic", today=None):
-    """Fixes each event's attendance probability, typical rating and date ONCE.
-
-    (v1 re-drew these for every record, so all events were statistically identical and any
-    difference between them on the dashboard was pure noise.)
-    """
-    today = today or datetime.now(timezone.utc).date()
-    profiles = {}
-    for name in event_names:
-        if profile == "Positive":
-            att_p, base_r = random.uniform(0.85, 0.95), random.uniform(4.1, 4.8)
-        elif profile == "Critical":
-            att_p, base_r = random.uniform(0.35, 0.6), random.uniform(1.6, 2.6)
+    if source_preference in ("Cloud (Auto-Fallback)", "Firebase Cloud Only"):
+        ok, msg = storage.init_firebase(st.secrets)
+        if ok:
+            try:
+                df, truncated = storage.fetch_firestore()
+                if not df.empty:
+                    source_label = "Firebase Cloud"
+            except Exception as e:
+                error_msg = str(e)
         else:
-            att_p, base_r = random.uniform(0.45, 0.95), random.uniform(2.0, 4.6)
-        profiles[name] = {
-            "att_p": att_p,
-            "base_r": base_r,
-            "date": (today - timedelta(days=random.randint(7, 120))).isoformat(),
-        }
-    return profiles
+            error_msg = msg
 
+    if source_preference == "Local CSV Only" or (df.empty and source_preference == "Cloud (Auto-Fallback)"):
+        df, truncated = storage.load_csv(), False
+        if not df.empty:
+            source_label = "Local CSV Fallback"
 
-def generate_records(num_records, event_names, profile="Realistic"):
-    """Builds simulated records (no I/O). Duplicates are injected as repeated dicts."""
-    profiles = make_event_profiles(event_names, profile)
-    # A shared pool of people, so some register for several events (enables returning-attendee stats).
-    user_pool = [str(uuid.uuid4())[:8] for _ in range(max(10, int(num_records * 0.7)))]
-    used_pairs = set()
-    records = []
-    for _ in range(num_records):
-        event = random.choice(event_names)
-        att_p, base_r = profiles[event]["att_p"], profiles[event]["base_r"]
-
-        # One registration per person per event; fall back to a new person if the pool is exhausted.
-        user_id = next((u for u in random.sample(user_pool, min(5, len(user_pool)))
-                        if (u, event) not in used_pairs), str(uuid.uuid4())[:8])
-        used_pairs.add((user_id, event))
-
-        attended = np.random.choice([True, False], p=[att_p, 1 - att_p])
-        rating, feedback = None, None
-
-        if attended:
-            # [NOISE] 5% chance of missing rating even if attended
-            if random.random() > 0.05:
-                # Round to nearest star (int() truncation biased every rating downward)
-                rating = int(np.clip(np.rint(np.random.normal(base_r, 0.8)), 1, 5))
-
-            # [NOISE] 10% chance of "Mismatch" (High rating, Negative text or vice-versa)
-            is_mismatch = random.random() < 0.1
-            sim_rating = rating if rating else 3
-            if is_mismatch:
-                mismatch_rating = 1 if sim_rating >= 4 else 5
-                feedback = random.choice(TEMPLATES[mismatch_rating])
-            else:
-                feedback = random.choice(TEMPLATES[sim_rating])
-
-        data = {
-            "User_ID": user_id,
-            "Event_Name": event,
-            "Event_Type": classify_event(event),
-            "Event_Date": profiles[event]["date"],
-            "Registered": True,
-            "Attended": bool(attended),
-            "Rating": rating,
-            "Feedback_Text": feedback,
-        }
-
-        # [NOISE] Add occasional duplicates (2% chance)
-        records.append(data)
-        if random.random() < 0.02:
-            records.append(dict(data))
-    return records
+    if df.empty:
+        return df, source_label, error_msg, truncated
+    return process(df), source_label, error_msg, truncated
 
 
 def push_simulated_data(num_records, event_names, profile="Realistic"):
-    success, msg = init_firebase()
-    if not success:
+    ok, msg = storage.init_firebase(st.secrets)
+    if not ok:
         st.error(f"Firebase Connection Failed: {msg}")
         return False
-    db = firestore.client()
-
     with st.status(f"🛠️ Simulation Engine ({profile})...", expanded=True) as status:
         try:
-            status.write("Purging Cloud Collection...")
-            collection_ref = db.collection('Registrations_Feedback')
-            docs = collection_ref.limit(500).get()
-            while len(docs) > 0:
-                batch = db.batch()
-                for doc in docs: batch.delete(doc.reference)
-                batch.commit()
-                docs = collection_ref.limit(500).get()
-
-            status.write(f"Generating {num_records} noisy records...")
             records = generate_records(num_records, event_names, profile)
-
             # Same records (duplicates included) go to both Firestore and the CSV fallback.
-            batch = db.batch()
-            for i, data in enumerate(records):
-                batch.set(collection_ref.document(), {**data, "Timestamp": firestore.SERVER_TIMESTAMP})
-                if (i + 1) % 400 == 0:
-                    batch.commit()
-                    batch = db.batch()
-            batch.commit()
-
-            # The SERVER_TIMESTAMP sentinel can't be serialised to CSV; record the real write time instead.
-            now = datetime.now(timezone.utc).isoformat()
-            pd.DataFrame([{**r, "Timestamp": now} for r in records]).to_csv("eventflow_simulated_data.csv",
-                                                                           index=False)
+            storage.replace_firestore(records, progress=status.write)
+            storage.save_csv(records)
             status.update(label="✅ Noise-Injected Pipeline Refreshed!", state="complete")
             return True
         except Exception as e:
@@ -214,165 +99,7 @@ def push_simulated_data(num_records, event_names, profile="Realistic"):
             return False
 
 
-# --- 4. DATA EXTRACTION, CLEANING & FEATURE ENGINEERING ---
-FIRESTORE_READ_LIMIT = 5000  # newest N records are read; the dashboard warns if more exist
-
-
-@st.cache_data(ttl=300)
-def get_processed_data(source_preference):
-    df, source_label, error_msg, truncated = pd.DataFrame(), "None", None, False
-
-    if source_preference in ["Cloud (Auto-Fallback)", "Firebase Cloud Only"]:
-        success, init_msg = init_firebase()
-        if success:
-            try:
-                db = firestore.client()
-                # Ask for one extra document so we can tell whether the limit cut anything off.
-                docs = db.collection('Registrations_Feedback').order_by(
-                    'Timestamp', direction=firestore.Query.DESCENDING).limit(FIRESTORE_READ_LIMIT + 1).get()
-                if len(docs) > FIRESTORE_READ_LIMIT:
-                    truncated, docs = True, docs[:FIRESTORE_READ_LIMIT]
-                if docs:
-                    df = pd.DataFrame([d.to_dict() for d in docs])
-                    source_label = "Firebase Cloud"
-            except Exception as e:
-                error_msg = str(e)
-        else:
-            error_msg = init_msg
-
-    if df.empty or source_preference == "Local CSV Only":
-        if os.path.exists("eventflow_simulated_data.csv"):
-            df = pd.read_csv("eventflow_simulated_data.csv")
-            source_label = "Local CSV Fallback"
-
-    if df.empty: return df, source_label, error_msg, truncated
-
-    # --- STEP 4.0: SCHEMA NORMALISATION ---
-    if 'Event_Date' in df.columns:  # added in v2; older data has no event dates
-        df['Event_Date'] = pd.to_datetime(df['Event_Date'], errors='coerce')
-    # Event_Type is derived from the name; recompute it so older data (missing the column,
-    # or mislabelled by the old substring rule) is classified consistently.
-    df['Event_Type'] = df['Event_Name'].apply(classify_event)
-    if 'Timestamp' not in df.columns:
-        df['Timestamp'] = pd.NaT
-    # Old CSVs hold the literal "Sentinel: ..." string; coerce those to NaT.
-    df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce', utc=True)
-    if df['Attended'].dtype == object:
-        df['Attended'] = df['Attended'].astype(str).str.lower().eq('true')
-
-    # --- STEP 4.1: DATA CLEANING ---
-    # A. Duplicate Removal
-    df = df.drop_duplicates(subset=['User_ID', 'Event_Name', 'Feedback_Text'])
-
-    # B. Explicit Null Handling
-    # Ratings are only expected if Attended is True
-    df.loc[(df['Attended'] == False), 'Rating'] = np.nan
-    # Fill missing Feedback_Text with a placeholder for analysis
-    df['Feedback_Text'] = df['Feedback_Text'].fillna("No Comment Provided")
-
-    # C. Text Preprocessing (Normalization for NLP)
-    def clean_text(text):
-        text = str(text).lower()
-        text = re.sub(f"[{re.escape(string.punctuation)}]", "", text)  # Remove punctuation
-        text = text.strip()
-        return text
-
-    df['Cleaned_Feedback'] = df['Feedback_Text'].apply(clean_text)
-
-    # --- STEP 4.2: FEATURE ENGINEERING ---
-    df['Rating'] = pd.to_numeric(df['Rating'], errors='coerce')
-    analyzer = SentimentIntensityAnalyzer()
-
-    def analyze_row(row):
-        # No comment = nothing to score. NaN (not 0) keeps these rows out of sentiment averages.
-        if row['Cleaned_Feedback'] == "no comment provided": return np.nan, "No Comment", np.nan
-        # VADER is scored on the ORIGINAL text: it uses punctuation ("!!") and capitalisation
-        # as intensity cues, so the normalised Cleaned_Feedback would weaken its scores.
-        score = analyzer.polarity_scores(str(row['Feedback_Text']))['compound']
-        label = "Positive" if score >= 0.05 else ("Negative" if score <= -0.05 else "Neutral")
-        rating = row['Rating']
-        # Consistency Logic (Rating vs Sentiment). Rows without a rating can't be checked,
-        # so they are NaN (excluded from averages) rather than counted as mismatches.
-        if pd.isna(rating):
-            return score, label, np.nan
-        if rating >= 4:
-            aligned = score >= 0.05
-        elif rating <= 2:
-            aligned = score <= -0.05
-        else:
-            # A 3-star review is "mixed": anything short of strongly polar text is consistent.
-            # The +/-0.05 neutral band alone is too narrow for real comments.
-            aligned = abs(score) < MIXED_BAND
-        return score, label, int(aligned)
-
-    res = df.apply(analyze_row, axis=1)
-    df['Senti_Score'] = [r[0] for r in res]
-    df['Sentiment'] = [r[1] for r in res]
-    df['NLP_Alignment'] = [r[2] for r in res]
-
-    return df, source_label, error_msg, truncated
-
-
-# --- 4b. EVENT-LEVEL STATISTICS ---
-PRIOR_WEIGHT = 20  # pseudo-observations that pull small-sample averages toward the overall average
-Z95 = 1.96
-
-STOPWORDS = set("""a an the and or but of to in on at for with from by is was were be been are it its this that
-these those i me my we our you your he she they them their very so too just really much more most no not nor
-dont didnt wasnt isnt couldnt would could should will can had has have do did does all any some than then
-there here what which who when where how also well bit quite""".split())
-
-
-def wilson_interval(successes, n, z=Z95):
-    """95% confidence interval for a proportion; behaves well for small n and rates near 0 or 1."""
-    if n == 0:
-        return np.nan, np.nan
-    p = successes / n
-    denom = 1 + z * z / n
-    centre = (p + z * z / (2 * n)) / denom
-    half = z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
-    return max(0.0, centre - half), min(1.0, centre + half)
-
-
-def build_event_stats(df):
-    """Per-event metrics, with sample sizes, confidence intervals and small-sample-adjusted rankings."""
-    keys = ['Event_Name', 'Event_Type']
-    attendees = df[df['Attended'] == True]
-    stats = df.groupby(keys).agg(Total_Reg=('Attended', 'count'), Total_Att=('Attended', 'sum')).join(
-        attendees.groupby(keys).agg(N_Ratings=('Rating', 'count'), Avg_Rating=('Rating', 'mean'),
-                                    Rating_Std=('Rating', 'std'), Rating_Skew=('Rating', 'skew'),
-                                    Avg_Sentiment=('Senti_Score', 'mean'), NLP_Match=('NLP_Alignment', 'mean'))
-    ).reset_index()
-    if 'Event_Date' in df.columns:
-        stats = stats.merge(df.groupby('Event_Name')['Event_Date'].min().reset_index(), on='Event_Name')
-
-    stats['N_Ratings'] = stats['N_Ratings'].fillna(0).astype(int)
-    stats['Total_Att'] = stats['Total_Att'].astype(int)
-    dropped = stats['Total_Reg'] - stats['Total_Att']
-    stats['Drop_off_Rate'] = dropped / stats['Total_Reg']
-
-    # Confidence intervals: normal approximation for mean rating, Wilson for drop-off rate.
-    stats['Rating_CI'] = Z95 * stats['Rating_Std'] / np.sqrt(stats['N_Ratings'].where(stats['N_Ratings'] > 0))
-    bounds = [wilson_interval(k, n) for k, n in zip(dropped, stats['Total_Reg'])]
-    stats['Drop_CI_Low'] = [b[0] for b in bounds]
-    stats['Drop_CI_High'] = [b[1] for b in bounds]
-
-    # Bayesian (shrunk) averages for ranking: an event with few responses is pulled toward the overall
-    # average, so 3 five-star ratings can't outrank 300 ratings averaging 4.8.
-    overall_rating = attendees['Rating'].mean()
-    rating_sum = stats['Avg_Rating'].fillna(0) * stats['N_Ratings']
-    stats['Adj_Rating'] = (rating_sum + PRIOR_WEIGHT * overall_rating) / (stats['N_Ratings'] + PRIOR_WEIGHT)
-    overall_drop = dropped.sum() / stats['Total_Reg'].sum()
-    stats['Adj_Drop_off'] = (dropped + PRIOR_WEIGHT * overall_drop) / (stats['Total_Reg'] + PRIOR_WEIGHT)
-    return stats
-
-
-def top_keywords(texts, n=8):
-    words = Counter(w for t in texts for w in str(t).split() if len(w) > 2 and w not in STOPWORDS)
-    return pd.DataFrame(words.most_common(n), columns=['Keyword', 'Mentions'])
-
-
-# --- 5. SIDEBAR ---
+# --- 4. SIDEBAR ---
 st.sidebar.header("🛡️ System Management")
 st.sidebar.caption(f"EventFlow v{APP_VERSION}")
 if 'source_pref' not in st.session_state:
@@ -394,23 +121,26 @@ with st.sidebar.expander("🎯 Matrix Thresholds", expanded=False):
     drop_target = st.slider("Drop-off threshold (%)", 0, 100, 30, 5,
                             disabled=threshold_mode != "Fixed targets") / 100
 
-with st.sidebar.expander("⚙️ Simulation Config", expanded=False):
-    num_to_gen = st.slider("Total Records", 100, 2000, 600)
-    event_list_raw = st.text_area("Events List", "AI Workshop, Cloud Hackathon, Music Fest, Startup Pitch, Career Fair")
-    sim_profile = st.selectbox("Sentiment Logic", ["Realistic", "Positive", "Critical"])
-    st.warning("This permanently deletes **every document** in the Firestore `Registrations_Feedback` "
-               "collection and overwrites the local CSV. It cannot be undone.")
-    confirm_wipe = st.checkbox("I understand, delete the existing data")
-    if st.button("🚀 Wipe & Regenerate Data", disabled=not confirm_wipe):
-        events = [x.strip() for x in event_list_raw.split(",") if x.strip()]
-        if not events:
-            st.error("Enter at least one event name.")
-        # Only rerun on success, otherwise the rerun would immediately hide the error message.
-        elif push_simulated_data(num_to_gen, events, sim_profile):
-            st.cache_data.clear()
-            st.rerun()
+if ADMIN_MODE:
+    with st.sidebar.expander("⚙️ Simulation Config", expanded=False):
+        num_to_gen = st.slider("Total Records", 100, 2000, 600)
+        event_list_raw = st.text_area("Events List", ", ".join(DEFAULT_EVENTS))
+        sim_profile = st.selectbox("Sentiment Logic", PROFILES)
+        st.warning("This permanently deletes **every document** in the Firestore `Registrations_Feedback` "
+                   "collection and overwrites the local CSV. It cannot be undone.")
+        confirm_wipe = st.checkbox("I understand, delete the existing data")
+        if st.button("🚀 Wipe & Regenerate Data", disabled=not confirm_wipe):
+            events = [x.strip() for x in event_list_raw.split(",") if x.strip()]
+            if not events:
+                st.error("Enter at least one event name.")
+            # Only rerun on success, otherwise the rerun would immediately hide the error message.
+            elif push_simulated_data(num_to_gen, events, sim_profile):
+                st.cache_data.clear()
+                st.rerun()
+else:
+    st.sidebar.caption("🔒 Read-only mode. The data simulator is hidden; set `EVENTFLOW_ADMIN=1` to enable it.")
 
-# --- 6. EXECUTIVE INSIGHT PANEL ---
+# --- 5. EXECUTIVE INSIGHT PANEL ---
 if not df.empty:
     st.title("📊 EventFlow: Event Feedback Analytics Dashboard")
 
@@ -429,8 +159,7 @@ if not df.empty:
     top_event = ranked.loc[ranked['Adj_Rating'].idxmax()] if not ranked.empty else None
     worst_event = event_stats.loc[event_stats['Adj_Drop_off'].idxmax()]
 
-    events_per_person = df.groupby('User_ID')['Event_Name'].nunique()
-    returning_pct = (events_per_person > 1).mean() * 100
+    returning_pct = returning_share(df) * 100
 
     st.markdown("### 🔦 Executive Summary")
     c1, c2, c3, c4, c5 = st.columns(5)
@@ -459,7 +188,7 @@ if not df.empty:
             f'(95% CI {worst_event["Drop_CI_Low"] * 100:.0f}–{worst_event["Drop_CI_High"] * 100:.0f}%)</small></div>',
             unsafe_allow_html=True)
     with c5:
-        avg_align = df[df['Attended'] == True]['NLP_Alignment'].mean() * 100
+        avg_align = df[df['Attended']]['NLP_Alignment'].mean() * 100
         st.markdown(
             f'<div class="insight-card {"success-card" if avg_align > 80 else "warning-card"}"><b>🔍 Logic Integrity</b><br>Rating vs Mood<br><small>{avg_align:.1f}% Consistency</small></div>',
             unsafe_allow_html=True)
@@ -561,17 +290,15 @@ if not df.empty:
             st.write("**Correlation: Rating vs Sentiment (per response)**")
             # Computed over individual rated comments. Correlating the per-event averages would
             # use only one point per event, far too few for a meaningful coefficient.
-            scored = df[(df['Attended'] == True) & df['Rating'].notna() & df['Senti_Score'].notna()]
-            if len(scored) >= 10:
-                # Spearman = Pearson on ranks; suits a 1-5 ordinal rating (no SciPy needed).
-                spearman = scored['Rating'].rank().corr(scored['Senti_Score'].rank())
-                pearson = scored['Rating'].corr(scored['Senti_Score'])
+            spearman, pearson, n_scored = rating_sentiment_correlation(df)
+            if n_scored >= 10:
                 m1, m2 = st.columns(2)
                 m1.metric("Spearman ρ", f"{spearman:.3f}",
                           help="Rank correlation between star rating and comment sentiment. "
                                "+1 = sentiment always rises with the rating; 0 = no relationship.")
                 m2.metric("Pearson r", f"{pearson:.3f}", help="Linear correlation, shown for reference.")
-                st.caption(f"Based on {len(scored):,} individual rated comments.")
+                st.caption(f"Based on {n_scored:,} individual rated comments.")
+                scored = df[df['Attended'] & df['Rating'].notna() & df['Senti_Score'].notna()]
                 fig_corr = px.box(scored.assign(Rating=scored['Rating'].astype(int)), x="Rating", y="Senti_Score",
                                   title="Comment Sentiment by Star Rating",
                                   labels={"Rating": "Star rating", "Senti_Score": "VADER compound score"},
@@ -585,7 +312,7 @@ if not df.empty:
         event_choice = st.selectbox("Choose an event", event_stats.sort_values('Event_Name')['Event_Name'])
         ev = event_stats.set_index('Event_Name').loc[event_choice]
         edf = df[df['Event_Name'] == event_choice]
-        e_att = edf[edf['Attended'] == True]
+        e_att = edf[edf['Attended']]
 
         if has_dates and pd.notna(ev['Event_Date']):
             st.caption(f"{ev['Event_Type']} event · held {ev['Event_Date']:%d %b %Y}")
@@ -654,7 +381,7 @@ if not df.empty:
 
         col_pie, col_bar = st.columns(2)
         with col_pie:
-            sent_dist = df[df['Attended'] == True]['Sentiment'].value_counts()
+            sent_dist = df[df['Attended']]['Sentiment'].value_counts()
             st.plotly_chart(
                 px.pie(names=sent_dist.index, values=sent_dist.values, hole=0.5, title="Polarity Distribution"),
                 width="stretch")
@@ -668,14 +395,8 @@ if not df.empty:
         st.markdown(
             "This compares how we execute highly technical workshops versus general networking events, helping accurately allocate future budgets and resources.")
 
-        # Aggregate from individual rows so each response counts equally
-        # (averaging the per-event averages would over-weight small events).
-        attendees = df[df['Attended'] == True]
-        seg_stats = df.groupby('Event_Type').agg(Total_Reg=('Attended', 'count'),
-                                                 Total_Att=('Attended', 'sum')).join(
-            attendees.groupby('Event_Type').agg(Avg_Rating=('Rating', 'mean'),
-                                                Avg_Sentiment=('Senti_Score', 'mean'))).reset_index()
-        seg_stats['Agg_Engagement'] = (seg_stats['Total_Att'] / seg_stats['Total_Reg']) * 100
+        # Aggregated from individual rows so each response counts equally.
+        seg_stats = segment_stats(df)
 
         c_seg1, c_seg2 = st.columns(2)
         with c_seg1:
@@ -735,11 +456,15 @@ if not df.empty:
 
         st.info("**Tech Stack:** Python 3, Streamlit, Firebase Admin SDK, VADER, pandas, Plotly.")
 
-        if last_error: st.error(f"Last Pipeline Alert: {last_error}")
+        if last_error:
+            st.error(f"Last Pipeline Alert: {last_error}")
 
     with st.expander("🔍 View Processed Data (Deduplicated & Preprocessed)"):
         st.dataframe(df.sort_values(by='Timestamp', ascending=False) if 'Timestamp' in df.columns else df,
                      width="stretch")
 
 else:
-    st.warning("⚠️ No data available. Use 'Regenerate Data' in sidebar to start.")
+    st.warning("⚠️ No data available. Generate sample data with `python data_generator.py`, "
+               "or enable admin mode (`EVENTFLOW_ADMIN=1`) and use Wipe & Regenerate in the sidebar.")
+    if last_error:
+        st.error(f"Last Pipeline Alert: {last_error}")

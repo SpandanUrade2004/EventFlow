@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "eventflow",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "streamlit", "run", "app.py", "--server.headless", "true", "--server.port", "8501"],
+      "runtimeExecutable": "env",
+      "runtimeArgs": ["EVENTFLOW_ADMIN=1", "python3", "-m", "streamlit", "run", "app.py", "--server.headless", "true", "--server.port", "8501"],
       "port": 8501
     }
   ]

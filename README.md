@@ -1,24 +1,34 @@
 # EventFlow
 
-A Streamlit dashboard for event feedback. It loads registration, attendance, star-rating and comment data
-from Firebase Firestore (or a local CSV), scores each comment with VADER sentiment analysis, checks whether
-the comment's mood matches its star rating, and charts the results per event.
+**Event feedback analytics: which events are worth repeating, and can you trust the feedback?**
 
-## What's new in v2
+EventFlow is a Streamlit dashboard for event organisers. It takes registrations, attendance, star ratings and
+written comments, scores each comment with sentiment analysis, checks whether the comment agrees with its star
+rating, and ranks events in a way that accounts for how many responses each one has. It reads from Firebase
+Firestore, or from a local CSV so it runs with no setup at all.
 
-- **Realistic simulation:** each simulated event has its own fixed attendance rate, typical rating and date, and
-  people can register for several events. (In v1 every event was statistically identical.)
-- **Rankings that account for sample size:** Top Performer and Critical Drop-off use averages adjusted for how
-  many responses each event has, and event averages show 95% confidence intervals (also as error bars on the
-  Performance Matrix).
-- **Adjustable matrix thresholds:** fixed targets or event medians, set in the sidebar.
-- **Event Drill-down tab:** rating distribution, most-mentioned words in positive and negative comments, and
-  the responses whose rating and comment disagree, downloadable as CSV.
-- **Read-limit warning** when Firestore holds more records than the dashboard reads (5,000).
+![Executive summary](docs/screenshots/overview.png)
 
-v1.0 is tagged in git as `v1.0`.
+## Features
 
-## Run it
+- **Executive summary:** top performer, attendance, worst drop-off and rating–comment consistency at a glance.
+- **Performance Matrix:** drop-off rate vs satisfaction, with 95% confidence intervals as error bars and
+  quadrant lines you can set in the sidebar (fixed targets or event medians).
+- **Rankings that account for sample size:** an event with three 5-star ratings can't beat one with 300 ratings
+  averaging 4.8. Rankings use averages shrunk toward the overall mean (a Bayesian average).
+- **Event Drill-down:** rating distribution, the most-mentioned words in positive and negative comments, and the
+  responses whose stars and comment disagree, downloadable as CSV.
+- **Sentiment validation:** VADER sentiment scores, a per-response rank correlation between rating and sentiment,
+  and a match rate per event.
+- **Technical vs General** event comparison.
+- **Built-in data simulator** with deliberate noise (missing ratings, contradicting comments, duplicates) to
+  exercise the cleaning steps. Each simulated event has its own attendance rate, typical rating and date.
+
+![Performance Matrix](docs/screenshots/performance-matrix.png)
+
+![Event Drill-down](docs/screenshots/drill-down.png)
+
+## Quick start
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
@@ -26,25 +36,63 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-With no Firebase key configured, the app falls back to `eventflow_simulated_data.csv`
-(choose **Local CSV Only** in the sidebar to use it directly).
+With no Firebase key configured, the app uses the bundled sample data in `eventflow_simulated_data.csv`.
 
 ## Firebase setup (optional)
 
 The service-account key must stay **outside** this folder. The app looks for it in this order:
 
-1. A `[firebase]` table in `.streamlit/secrets.toml` (the fields of the key JSON as TOML keys). This is the
-   option to use on Streamlit Community Cloud.
+1. A `[firebase]` table in `.streamlit/secrets.toml` (the fields of the key JSON as TOML keys). Use this on
+   Streamlit Community Cloud.
 2. The file path in the `EVENTFLOW_FIREBASE_KEY` environment variable.
 3. `~/.config/eventflow/serviceAccountKey.json`
 
-The app reads and writes the `Registrations_Feedback` collection.
-**Wipe & Regenerate Data** in the sidebar deletes that whole collection before writing new simulated records.
+The app reads the newest 5,000 records from the `Registrations_Feedback` collection and warns if there are more.
 
-## Files
+### Admin mode (data simulator)
 
-| File | Purpose |
+**Wipe & Regenerate Data** deletes the whole Firestore collection, so it is hidden by default. To show it:
+
+```bash
+EVENTFLOW_ADMIN=1 streamlit run app.py
+```
+
+On Streamlit Cloud, add `admin = true` to the app's secrets instead. Leave it off on any public deployment.
+
+## Development
+
+```bash
+pip install -r requirements-dev.txt
+pytest          # unit tests for simulation, cleaning and statistics
+ruff check .    # lint
+```
+
+GitHub Actions runs both on every push and pull request (`.github/workflows/ci.yml`).
+
+## Project structure
+
+| Path | Purpose |
 |---|---|
-| `app.py` | The dashboard: data loading, cleaning, sentiment scoring, charts, and the Firestore simulator |
-| `data_generator.py` | Standalone script that writes a simulated CSV without Firebase (`python3 data_generator.py`) |
-| `eventflow_simulated_data.csv` | Sample simulated data used as the offline fallback |
+| `app.py` | Streamlit UI: layout, charts and caching |
+| `eventflow/simulation.py` | Synthetic data with per-event profiles and injected noise |
+| `eventflow/processing.py` | Cleaning, deduplication, VADER scoring and rating–comment alignment |
+| `eventflow/analytics.py` | Event statistics, confidence intervals, adjusted rankings, keywords |
+| `eventflow/storage.py` | Firebase credentials, Firestore reads and writes, CSV I/O |
+| `data_generator.py` | Writes a simulated CSV without Firebase |
+| `tests/` | pytest suite |
+| `eventflow_simulated_data.csv` | Bundled sample data (simulated) |
+
+## Limitations
+
+All bundled data is simulated, so the dashboard shows how the pipeline behaves rather than real attendee opinion.
+VADER is a rule-based model and can misread sarcasm or domain-specific wording.
+
+## Versions
+
+- **v2.0:** per-event simulation, sample-size-aware rankings with confidence intervals, drill-down, admin mode,
+  `eventflow` package with tests and CI.
+- **v1.0:** bug fixes, secure key loading, per-response correlation. Tagged `v1.0`.
+
+## License
+
+[MIT](LICENSE)
