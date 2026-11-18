@@ -101,6 +101,26 @@ The app reads the newest 5,000 records from the `Registrations_Feedback` collect
 To use a different collection, set `EVENTFLOW_COLLECTION=my_collection` or `collection = "my_collection"` in
 secrets.
 
+## Deploy online (free, Streamlit Community Cloud)
+
+Put the dashboard on the web so anyone can use it from a link, with no installation.
+
+1. Push this repository to GitHub (a **public** repo is simplest: unlimited free public apps).
+2. Sign in at [share.streamlit.io](https://share.streamlit.io) with GitHub and click **Create app → Deploy a public
+   app from GitHub**.
+3. Choose the repository, branch `main` and main file `app.py`. Under **Advanced settings**, pick Python **3.12**.
+4. Optional: in **Secrets**, add a `[firebase]` table (see above) to show your Firestore data, `collection = "..."`
+   for a different collection, or `admin = true` for the admin tools. **Leave admin off on a public app.** Without
+   secrets, visitors see the sample data and can upload their own files.
+5. Click **Deploy**.
+
+**Updating:** every `git push` to `main` redeploys the app automatically within a minute or so. Secrets live in the
+app's settings on share.streamlit.io, not in git.
+
+**Free-tier notes:** apps sleep after 12 hours without visitors and take a moment to wake up on the next visit, and
+memory is modest (comfortable for exports up to tens of thousands of rows). Each visitor's uploaded file stays in
+their own session.
+
 ## Admin tools: generating data
 
 The data simulator is for admins only, so ordinary viewers never see it. There are two ways to use it, and both
