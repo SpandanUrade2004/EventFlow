@@ -408,6 +408,21 @@ if not df.empty:
 
     with tab_drill:
         st.subheader("🔎 Event Drill-down")
+        st.write("""
+        **What does this tab show?**
+        The other tabs compare events with each other; this one looks inside a single event.
+        Pick an event to see:
+
+        - **Headline numbers:** registrations, attendance, average rating (± its 95% confidence interval) and how
+          often ratings and comments agreed.
+        - **Rating Distribution:** how many people gave each star rating. Two peaks (many 1s *and* many 5s) mean a
+          "love it or hate it" event, even if the average looks ordinary.
+        - **What people mention:** the most common words in positive and in negative comments, a quick way to see
+          what attendees praised and what they complained about.
+        - **Responses to read by hand:** comments that disagree with their star rating (e.g. 5 stars with a negative
+          comment). These are often mis-clicks or mixed feelings, so they're worth reading before acting on the
+          numbers. Download them as CSV to share with the event team.
+        """)
         event_choice = st.selectbox("Choose an event", event_stats.sort_values('Event_Name')['Event_Name'])
         ev = event_stats.set_index('Event_Name').loc[event_choice]
         edf = df[df['Event_Name'] == event_choice]
