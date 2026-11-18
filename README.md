@@ -49,15 +49,37 @@ The service-account key must stay **outside** this folder. The app looks for it 
 
 The app reads the newest 5,000 records from the `Registrations_Feedback` collection and warns if there are more.
 
-### Admin mode (data simulator)
+## Admin tools: generating data
 
-**Wipe & Regenerate Data** deletes the whole Firestore collection, so it is hidden by default. To show it:
+The data simulator is for admins only, so ordinary viewers never see it. There are two ways to use it, and both
+use the same simulator.
+
+**1. Admin panel in the dashboard.** Hidden by default. Turn it on with:
 
 ```bash
 EVENTFLOW_ADMIN=1 streamlit run app.py
 ```
 
-On Streamlit Cloud, add `admin = true` to the app's secrets instead. Leave it off on any public deployment.
+On Streamlit Cloud, add `admin = true` to the app's secrets instead, and leave it off on any public deployment.
+The sidebar then shows **Simulation Config (admin)**. **Write to** has two choices:
+
+- **Local CSV only** (the default) replaces the sample CSV and never touches Firestore.
+- **Firestore + local CSV** **deletes the whole Firestore collection** before writing new records.
+
+**2. Command line, with no Firebase needed:**
+
+```bash
+python data_generator.py --records 800 --profile Realistic --force
+```
+
+| Option | Default | Meaning |
+|---|---|---|
+| `--records` | 600 | registrations to simulate |
+| `--events` | the 5 default events | comma-separated event names |
+| `--profile` | `Realistic` | `Realistic`, `Positive` or `Critical` |
+| `--seed` | random | set for reproducible data |
+| `--output` | `eventflow_simulated_data.csv` | CSV to write |
+| `--force` | off | needed to overwrite an existing file |
 
 ## Development
 
@@ -78,7 +100,7 @@ GitHub Actions runs both on every push and pull request (`.github/workflows/ci.y
 | `eventflow/processing.py` | Cleaning, deduplication, VADER scoring and rating–comment alignment |
 | `eventflow/analytics.py` | Event statistics, confidence intervals, adjusted rankings, keywords |
 | `eventflow/storage.py` | Firebase credentials, Firestore reads and writes, CSV I/O |
-| `data_generator.py` | Writes a simulated CSV without Firebase |
+| `data_generator.py` | Admin CLI: writes a simulated CSV without Firebase |
 | `tests/` | pytest suite |
 | `eventflow_simulated_data.csv` | Bundled sample data (simulated) |
 

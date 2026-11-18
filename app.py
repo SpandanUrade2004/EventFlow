@@ -122,17 +122,27 @@ with st.sidebar.expander("🎯 Matrix Thresholds", expanded=False):
                             disabled=threshold_mode != "Fixed targets") / 100
 
 if ADMIN_MODE:
-    with st.sidebar.expander("⚙️ Simulation Config", expanded=False):
+    with st.sidebar.expander("⚙️ Simulation Config (admin)", expanded=False):
         num_to_gen = st.slider("Total Records", 100, 2000, 600)
         event_list_raw = st.text_area("Events List", ", ".join(DEFAULT_EVENTS))
         sim_profile = st.selectbox("Sentiment Logic", PROFILES)
-        st.warning("This permanently deletes **every document** in the Firestore `Registrations_Feedback` "
-                   "collection and overwrites the local CSV. It cannot be undone.")
-        confirm_wipe = st.checkbox("I understand, delete the existing data")
+        sim_target = st.radio("Write to", ["Local CSV only", "Firestore + local CSV"],
+                              help="Local CSV only never touches Firestore (same as running data_generator.py).")
+        if sim_target == "Firestore + local CSV":
+            st.warning("This permanently deletes **every document** in the Firestore `Registrations_Feedback` "
+                       "collection and overwrites the local CSV. It cannot be undone.")
+        else:
+            st.info("Overwrites the local sample CSV. Firestore is not touched. "
+                    "Switch the data source to **Local CSV Only** to view the result.")
+        confirm_wipe = st.checkbox("I understand, replace the existing data")
         if st.button("🚀 Wipe & Regenerate Data", disabled=not confirm_wipe):
             events = [x.strip() for x in event_list_raw.split(",") if x.strip()]
             if not events:
                 st.error("Enter at least one event name.")
+            elif sim_target == "Local CSV only":
+                storage.save_csv(generate_records(num_to_gen, events, sim_profile))
+                st.cache_data.clear()
+                st.rerun()
             # Only rerun on success, otherwise the rerun would immediately hide the error message.
             elif push_simulated_data(num_to_gen, events, sim_profile):
                 st.cache_data.clear()
