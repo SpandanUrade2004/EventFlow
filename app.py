@@ -35,6 +35,9 @@ st.markdown("""
     .source-badge { padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 20px; text-align: center; }
     .cloud-source { background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; }
     .local-source { background-color: #fff3cd; color: #664d03; border: 1px solid #ffecb5; }
+    /* Let column rows wrap instead of squeezing (e.g. the five summary cards on a narrow window) */
+    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap; }
+    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] { min-width: min(170px, 100%); }
     </style>
     """, unsafe_allow_html=True)
 

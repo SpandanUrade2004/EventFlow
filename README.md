@@ -1,10 +1,17 @@
 # EventFlow
 
+[![Live demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://eventflow-dashboard.streamlit.app)
+[![CI](https://github.com/SpandanUrade2004/EventFlow/actions/workflows/ci.yml/badge.svg)](https://github.com/SpandanUrade2004/EventFlow/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **Event feedback analytics: which events are worth repeating, and can you trust the feedback?**
 
 EventFlow is a Streamlit dashboard for event organisers. It takes registrations, attendance, star ratings and
 written comments, scores each comment with sentiment analysis, checks whether the comment agrees with its star
 rating, and ranks events in a way that accounts for how many responses each one has.
+
+**Try it now: [eventflow-dashboard.streamlit.app](https://eventflow-dashboard.streamlit.app)**, with no installation.
+(If nobody has opened it for a while, it takes a few seconds to wake up.)
 
 Use it on **your own data** by uploading a CSV or Excel file (a Google Forms export works as-is), connect it to
 **your own Firebase** project, or explore the bundled sample data with no setup at all.
