@@ -11,10 +11,13 @@ import uuid
 import json
 import re
 import string
-from datetime import datetime, timezone
+from collections import Counter
+from datetime import datetime, timedelta, timezone
+
+APP_VERSION = "2.0"
 
 # --- 1. PAGE CONFIGURATION ---
-st.set_page_config(page_title="EventFlow: Event Feedback Analytics Dashboard", layout="wide")
+st.set_page_config(page_title="EventFlow v2: Event Feedback Analytics Dashboard", layout="wide")
 
 # Custom CSS for a professional "Analyst" look
 st.markdown("""
@@ -94,14 +97,44 @@ TEMPLATES = {
 }
 
 
+def make_event_profiles(event_names, profile="Realistic", today=None):
+    """Fixes each event's attendance probability, typical rating and date ONCE.
+
+    (v1 re-drew these for every record, so all events were statistically identical and any
+    difference between them on the dashboard was pure noise.)
+    """
+    today = today or datetime.now(timezone.utc).date()
+    profiles = {}
+    for name in event_names:
+        if profile == "Positive":
+            att_p, base_r = random.uniform(0.85, 0.95), random.uniform(4.1, 4.8)
+        elif profile == "Critical":
+            att_p, base_r = random.uniform(0.35, 0.6), random.uniform(1.6, 2.6)
+        else:
+            att_p, base_r = random.uniform(0.45, 0.95), random.uniform(2.0, 4.6)
+        profiles[name] = {
+            "att_p": att_p,
+            "base_r": base_r,
+            "date": (today - timedelta(days=random.randint(7, 120))).isoformat(),
+        }
+    return profiles
+
+
 def generate_records(num_records, event_names, profile="Realistic"):
     """Builds simulated records (no I/O). Duplicates are injected as repeated dicts."""
+    profiles = make_event_profiles(event_names, profile)
+    # A shared pool of people, so some register for several events (enables returning-attendee stats).
+    user_pool = [str(uuid.uuid4())[:8] for _ in range(max(10, int(num_records * 0.7)))]
+    used_pairs = set()
     records = []
     for _ in range(num_records):
         event = random.choice(event_names)
-        att_p = random.uniform(0.4, 0.95) if profile == "Realistic" else (
-            0.90 if profile == "Positive" else 0.45)
-        base_r = random.uniform(1.5, 4.8) if profile == "Realistic" else (4.5 if profile == "Positive" else 2.0)
+        att_p, base_r = profiles[event]["att_p"], profiles[event]["base_r"]
+
+        # One registration per person per event; fall back to a new person if the pool is exhausted.
+        user_id = next((u for u in random.sample(user_pool, min(5, len(user_pool)))
+                        if (u, event) not in used_pairs), str(uuid.uuid4())[:8])
+        used_pairs.add((user_id, event))
 
         attended = np.random.choice([True, False], p=[att_p, 1 - att_p])
         rating, feedback = None, None
@@ -122,9 +155,10 @@ def generate_records(num_records, event_names, profile="Realistic"):
                 feedback = random.choice(TEMPLATES[sim_rating])
 
         data = {
-            "User_ID": str(uuid.uuid4())[:8],
+            "User_ID": user_id,
             "Event_Name": event,
             "Event_Type": classify_event(event),
+            "Event_Date": profiles[event]["date"],
             "Registered": True,
             "Attended": bool(attended),
             "Rating": rating,
@@ -181,18 +215,23 @@ def push_simulated_data(num_records, event_names, profile="Realistic"):
 
 
 # --- 4. DATA EXTRACTION, CLEANING & FEATURE ENGINEERING ---
+FIRESTORE_READ_LIMIT = 5000  # newest N records are read; the dashboard warns if more exist
+
+
 @st.cache_data(ttl=300)
 def get_processed_data(source_preference):
-    df, source_label, error_msg = pd.DataFrame(), "None", None
+    df, source_label, error_msg, truncated = pd.DataFrame(), "None", None, False
 
     if source_preference in ["Cloud (Auto-Fallback)", "Firebase Cloud Only"]:
         success, init_msg = init_firebase()
         if success:
             try:
                 db = firestore.client()
-                docs = db.collection('Registrations_Feedback').order_by('Timestamp',
-                                                                        direction=firestore.Query.DESCENDING).limit(
-                    2000).get()
+                # Ask for one extra document so we can tell whether the limit cut anything off.
+                docs = db.collection('Registrations_Feedback').order_by(
+                    'Timestamp', direction=firestore.Query.DESCENDING).limit(FIRESTORE_READ_LIMIT + 1).get()
+                if len(docs) > FIRESTORE_READ_LIMIT:
+                    truncated, docs = True, docs[:FIRESTORE_READ_LIMIT]
                 if docs:
                     df = pd.DataFrame([d.to_dict() for d in docs])
                     source_label = "Firebase Cloud"
@@ -206,9 +245,11 @@ def get_processed_data(source_preference):
             df = pd.read_csv("eventflow_simulated_data.csv")
             source_label = "Local CSV Fallback"
 
-    if df.empty: return df, source_label, error_msg
+    if df.empty: return df, source_label, error_msg, truncated
 
     # --- STEP 4.0: SCHEMA NORMALISATION ---
+    if 'Event_Date' in df.columns:  # added in v2; older data has no event dates
+        df['Event_Date'] = pd.to_datetime(df['Event_Date'], errors='coerce')
     # Event_Type is derived from the name; recompute it so older data (missing the column,
     # or mislabelled by the old substring rule) is classified consistently.
     df['Event_Type'] = df['Event_Name'].apply(classify_event)
@@ -243,7 +284,8 @@ def get_processed_data(source_preference):
     analyzer = SentimentIntensityAnalyzer()
 
     def analyze_row(row):
-        if row['Cleaned_Feedback'] == "no comment provided": return 0, "Neutral", np.nan
+        # No comment = nothing to score. NaN (not 0) keeps these rows out of sentiment averages.
+        if row['Cleaned_Feedback'] == "no comment provided": return np.nan, "No Comment", np.nan
         # VADER is scored on the ORIGINAL text: it uses punctuation ("!!") and capitalisation
         # as intensity cues, so the normalised Cleaned_Feedback would weaken its scores.
         score = analyzer.polarity_scores(str(row['Feedback_Text']))['compound']
@@ -268,21 +310,89 @@ def get_processed_data(source_preference):
     df['Sentiment'] = [r[1] for r in res]
     df['NLP_Alignment'] = [r[2] for r in res]
 
-    return df, source_label, error_msg
+    return df, source_label, error_msg, truncated
+
+
+# --- 4b. EVENT-LEVEL STATISTICS ---
+PRIOR_WEIGHT = 20  # pseudo-observations that pull small-sample averages toward the overall average
+Z95 = 1.96
+
+STOPWORDS = set("""a an the and or but of to in on at for with from by is was were be been are it its this that
+these those i me my we our you your he she they them their very so too just really much more most no not nor
+dont didnt wasnt isnt couldnt would could should will can had has have do did does all any some than then
+there here what which who when where how also well bit quite""".split())
+
+
+def wilson_interval(successes, n, z=Z95):
+    """95% confidence interval for a proportion; behaves well for small n and rates near 0 or 1."""
+    if n == 0:
+        return np.nan, np.nan
+    p = successes / n
+    denom = 1 + z * z / n
+    centre = (p + z * z / (2 * n)) / denom
+    half = z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
+    return max(0.0, centre - half), min(1.0, centre + half)
+
+
+def build_event_stats(df):
+    """Per-event metrics, with sample sizes, confidence intervals and small-sample-adjusted rankings."""
+    keys = ['Event_Name', 'Event_Type']
+    attendees = df[df['Attended'] == True]
+    stats = df.groupby(keys).agg(Total_Reg=('Attended', 'count'), Total_Att=('Attended', 'sum')).join(
+        attendees.groupby(keys).agg(N_Ratings=('Rating', 'count'), Avg_Rating=('Rating', 'mean'),
+                                    Rating_Std=('Rating', 'std'), Rating_Skew=('Rating', 'skew'),
+                                    Avg_Sentiment=('Senti_Score', 'mean'), NLP_Match=('NLP_Alignment', 'mean'))
+    ).reset_index()
+    if 'Event_Date' in df.columns:
+        stats = stats.merge(df.groupby('Event_Name')['Event_Date'].min().reset_index(), on='Event_Name')
+
+    stats['N_Ratings'] = stats['N_Ratings'].fillna(0).astype(int)
+    stats['Total_Att'] = stats['Total_Att'].astype(int)
+    dropped = stats['Total_Reg'] - stats['Total_Att']
+    stats['Drop_off_Rate'] = dropped / stats['Total_Reg']
+
+    # Confidence intervals: normal approximation for mean rating, Wilson for drop-off rate.
+    stats['Rating_CI'] = Z95 * stats['Rating_Std'] / np.sqrt(stats['N_Ratings'].where(stats['N_Ratings'] > 0))
+    bounds = [wilson_interval(k, n) for k, n in zip(dropped, stats['Total_Reg'])]
+    stats['Drop_CI_Low'] = [b[0] for b in bounds]
+    stats['Drop_CI_High'] = [b[1] for b in bounds]
+
+    # Bayesian (shrunk) averages for ranking: an event with few responses is pulled toward the overall
+    # average, so 3 five-star ratings can't outrank 300 ratings averaging 4.8.
+    overall_rating = attendees['Rating'].mean()
+    rating_sum = stats['Avg_Rating'].fillna(0) * stats['N_Ratings']
+    stats['Adj_Rating'] = (rating_sum + PRIOR_WEIGHT * overall_rating) / (stats['N_Ratings'] + PRIOR_WEIGHT)
+    overall_drop = dropped.sum() / stats['Total_Reg'].sum()
+    stats['Adj_Drop_off'] = (dropped + PRIOR_WEIGHT * overall_drop) / (stats['Total_Reg'] + PRIOR_WEIGHT)
+    return stats
+
+
+def top_keywords(texts, n=8):
+    words = Counter(w for t in texts for w in str(t).split() if len(w) > 2 and w not in STOPWORDS)
+    return pd.DataFrame(words.most_common(n), columns=['Keyword', 'Mentions'])
 
 
 # --- 5. SIDEBAR ---
 st.sidebar.header("🛡️ System Management")
+st.sidebar.caption(f"EventFlow v{APP_VERSION}")
 if 'source_pref' not in st.session_state:
     st.session_state.source_pref = "Cloud (Auto-Fallback)"
 
 st.session_state.source_pref = st.sidebar.radio("Active Pipeline Selection",
                                                 ["Cloud (Auto-Fallback)", "Firebase Cloud Only", "Local CSV Only"])
 
-df, data_source, last_error = get_processed_data(st.session_state.source_pref)
+df, data_source, last_error, was_truncated = get_processed_data(st.session_state.source_pref)
 
 badge_class = "cloud-source" if "Cloud" in data_source else "local-source"
 st.sidebar.markdown(f'<div class="source-badge {badge_class}">Hub: {data_source}</div>', unsafe_allow_html=True)
+
+with st.sidebar.expander("🎯 Matrix Thresholds", expanded=False):
+    threshold_mode = st.radio("Quadrant lines", ["Fixed targets", "Event medians"],
+                              help="Event medians split the events into halves on each axis.")
+    rating_target = st.slider("Satisfaction target (stars)", 1.0, 5.0, 3.5, 0.1,
+                              disabled=threshold_mode != "Fixed targets")
+    drop_target = st.slider("Drop-off threshold (%)", 0, 100, 30, 5,
+                            disabled=threshold_mode != "Fixed targets") / 100
 
 with st.sidebar.expander("⚙️ Simulation Config", expanded=False):
     num_to_gen = st.slider("Total Records", 100, 2000, 600)
@@ -304,51 +414,64 @@ with st.sidebar.expander("⚙️ Simulation Config", expanded=False):
 if not df.empty:
     st.title("📊 EventFlow: Event Feedback Analytics Dashboard")
 
-    # Feature Engineering (Aggregate Level)
-    event_stats = df.groupby(['Event_Name', 'Event_Type']).agg({
-        'Attended': ['count', 'sum'],
-        'Rating': ['mean', 'std', 'skew'],
-        'Senti_Score': 'mean',
-        'NLP_Alignment': 'mean'
-    })
-    event_stats.columns = ['Total_Reg', 'Total_Att', 'Avg_Rating', 'Rating_Std', 'Rating_Skew', 'Avg_Sentiment',
-                           'NLP_Match']
-    event_stats = event_stats.reset_index()
+    if was_truncated:
+        st.warning(f"Showing only the newest {FIRESTORE_READ_LIMIT:,} records. Firestore holds more, so "
+                   f"totals and averages may not cover everything.")
 
-    # Explicit Engineered Metric: Drop-off Rate
-    event_stats['Drop_off_Rate'] = 1 - (event_stats['Total_Att'] / event_stats['Total_Reg'])
+    event_stats = build_event_stats(df)
+    has_dates = 'Event_Date' in event_stats.columns
 
-    top_event = event_stats.loc[event_stats['Avg_Rating'].idxmax()]
-    worst_event = event_stats.loc[event_stats['Drop_off_Rate'].idxmax()]
+    if threshold_mode == "Event medians":
+        rating_target = float(event_stats['Avg_Rating'].median())
+        drop_target = float(event_stats['Drop_off_Rate'].median())
+
+    ranked = event_stats.dropna(subset=['Adj_Rating'])
+    top_event = ranked.loc[ranked['Adj_Rating'].idxmax()] if not ranked.empty else None
+    worst_event = event_stats.loc[event_stats['Adj_Drop_off'].idxmax()]
+
+    events_per_person = df.groupby('User_ID')['Event_Name'].nunique()
+    returning_pct = (events_per_person > 1).mean() * 100
 
     st.markdown("### 🔦 Executive Summary")
     c1, c2, c3, c4, c5 = st.columns(5)
     with c1:
-        st.markdown(
-            f'<div class="insight-card success-card"><b>🏆 Top Performer</b><br>{top_event["Event_Name"]}<br><small>Rating: {top_event["Avg_Rating"]:.2f}/5</small></div>',
-            unsafe_allow_html=True)
+        if top_event is not None:
+            st.markdown(
+                f'<div class="insight-card success-card"><b>🏆 Top Performer</b><br>{top_event["Event_Name"]}<br>'
+                f'<small>Rating: {top_event["Avg_Rating"]:.2f}/5 from {top_event["N_Ratings"]} ratings</small></div>',
+                unsafe_allow_html=True)
+        else:
+            st.markdown('<div class="insight-card info-card"><b>🏆 Top Performer</b><br>No ratings yet</div>',
+                        unsafe_allow_html=True)
     with c2:
         st.markdown(
             f'<div class="insight-card info-card"><b>📝 Total Records</b><br>{len(df)} Entries<br><small>After duplicate removal</small></div>',
             unsafe_allow_html=True)
     with c3:
         st.markdown(
-            f'<div class="insight-card info-card"><b>👥 Participation</b><br>{int(event_stats["Total_Att"].sum())} Attendees<br><small>Across {len(event_stats)} events</small></div>',
+            f'<div class="insight-card info-card"><b>👥 Participation</b><br>{int(event_stats["Total_Att"].sum())} Attendees<br>'
+            f'<small>Across {len(event_stats)} events · {returning_pct:.0f}% of people signed up for 2+</small></div>',
             unsafe_allow_html=True)
     with c4:
         st.markdown(
-            f'<div class="insight-card error-card"><b>🚨 Critical Drop-off</b><br>{worst_event["Event_Name"]}<br><small>Drop rate: {worst_event["Drop_off_Rate"] * 100:.1f}%</small></div>',
+            f'<div class="insight-card error-card"><b>🚨 Critical Drop-off</b><br>{worst_event["Event_Name"]}<br>'
+            f'<small>Drop rate: {worst_event["Drop_off_Rate"] * 100:.1f}% '
+            f'(95% CI {worst_event["Drop_CI_Low"] * 100:.0f}–{worst_event["Drop_CI_High"] * 100:.0f}%)</small></div>',
             unsafe_allow_html=True)
     with c5:
         avg_align = df[df['Attended'] == True]['NLP_Alignment'].mean() * 100
         st.markdown(
             f'<div class="insight-card {"success-card" if avg_align > 80 else "warning-card"}"><b>🔍 Logic Integrity</b><br>Rating vs Mood<br><small>{avg_align:.1f}% Consistency</small></div>',
             unsafe_allow_html=True)
+    st.caption(f"Top Performer and Critical Drop-off are ranked on averages adjusted for sample size "
+               f"(each event is blended with {PRIOR_WEIGHT} responses' worth of the overall average), "
+               f"so events with only a few responses can't top the rankings by chance.")
 
     # TABS
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab_drill, tab3, tab4, tab5 = st.tabs([
         "🎯 Performance Matrix",
         "📉 Student Consistency",
+        "🔎 Event Drill-down",
         "🧠 AI Mood Validation",
         "🏗️ Tech vs. General",
         "📑 Pipeline Journey"
@@ -359,17 +482,25 @@ if not df.empty:
         col_chart, col_text = st.columns([2, 1])
 
         with col_chart:
-            fig_quad = px.scatter(event_stats, x="Drop_off_Rate", y="Avg_Rating", size="Total_Reg", color="Event_Name",
+            plot_df = event_stats.assign(
+                Drop_Err_Plus=event_stats['Drop_CI_High'] - event_stats['Drop_off_Rate'],
+                Drop_Err_Minus=event_stats['Drop_off_Rate'] - event_stats['Drop_CI_Low'])
+            fig_quad = px.scatter(plot_df, x="Drop_off_Rate", y="Avg_Rating", size="Total_Reg", color="Event_Name",
                                   text="Event_Name", title="Investment vs. Satisfaction Matrix",
+                                  error_y="Rating_CI", error_x="Drop_Err_Plus", error_x_minus="Drop_Err_Minus",
+                                  hover_data={"N_Ratings": True, "Total_Reg": True, "Drop_Err_Plus": False,
+                                              "Drop_Err_Minus": False, "Rating_CI": ":.2f"},
                                   labels={"Drop_off_Rate": "Drop-off Rate (1 - Attendance)",
-                                          "Avg_Rating": "Avg Rating"},
+                                          "Avg_Rating": "Avg Rating", "N_Ratings": "Ratings",
+                                          "Total_Reg": "Registrations", "Rating_CI": "Rating ± (95%)"},
                                   height=500, template="plotly_white")
-            fig_quad.add_hline(y=3.5, line_dash="dash", line_color="gray")
-            fig_quad.add_vline(x=0.3, line_dash="dash", line_color="gray")
+            fig_quad.update_xaxes(tickformat=".0%")
+            fig_quad.add_hline(y=rating_target, line_dash="dash", line_color="gray")
+            fig_quad.add_vline(x=drop_target, line_dash="dash", line_color="gray")
             st.plotly_chart(fig_quad, width="stretch")
 
         with col_text:
-            st.markdown("""
+            st.markdown(f"""
             **How to read this matrix:**
             We group events into four "Performance Zones" to help management make decisions:
 
@@ -378,7 +509,11 @@ if not df.empty:
             - **💎 Hidden Gems (Top Right):** High drop-off, but those who stayed loved it. Needs better targeted marketing to the right audience next time.
             - **🛑 The Risks (Bottom Right):** High drop-off and low satisfaction. Urgent re-evaluation needed.
 
-            *Dashed lines: 3.5-star satisfaction target and 30% drop-off threshold.*
+            *Dashed lines ({threshold_mode.lower()}): {rating_target:.2f} stars and {drop_target:.0%} drop-off.
+            Change them under **Matrix Thresholds** in the sidebar.*
+
+            *Error bars are 95% confidence intervals. When an event's bars cross a dashed line, its zone is
+            uncertain: more responses are needed to say which side it is on.*
             """)
 
     with tab2:
@@ -390,14 +525,25 @@ if not df.empty:
             st.write("**Event Performance & Consistency**")
 
             # Rename columns ONLY for the visual display, keeping the backend intact
-            styled_df = event_stats[['Event_Name', 'Avg_Rating', 'Rating_Std', 'Rating_Skew', 'Drop_off_Rate']].rename(
+            table_cols = (['Event_Date'] if has_dates else []) + [
+                'Event_Name', 'N_Ratings', 'Avg_Rating', 'Rating_CI', 'Adj_Rating', 'Rating_Std', 'Rating_Skew',
+                'Drop_off_Rate']
+            styled_df = event_stats[table_cols].sort_values('Adj_Rating', ascending=False).rename(
                 columns={
+                    'Event_Date': 'Date',
+                    'N_Ratings': 'Ratings (n)',
                     'Avg_Rating': 'Average Rating',
+                    'Rating_CI': '± 95% CI',
+                    'Adj_Rating': 'Adjusted Rating',
                     'Rating_Std': 'Consistency (StdDev)',
                     'Rating_Skew': 'Opinion Bias',
                     'Drop_off_Rate': 'Drop-off Risk'
                 })
-            st.dataframe(styled_df.round(2), hide_index=True)
+            st.dataframe(styled_df.round(2), hide_index=True,
+                         column_config={"Date": st.column_config.DateColumn(format="D MMM YYYY")})
+            st.caption("**Adjusted Rating** blends each event's average with the overall average, weighted by how "
+                       "many ratings it has. Events with few ratings move toward the middle; well-rated events "
+                       "with many responses barely change. The table is sorted by it.")
 
             # Add explanatory boxes below the table
             st.info("""
@@ -415,8 +561,7 @@ if not df.empty:
             st.write("**Correlation: Rating vs Sentiment (per response)**")
             # Computed over individual rated comments. Correlating the per-event averages would
             # use only one point per event, far too few for a meaningful coefficient.
-            scored = df[(df['Attended'] == True) & df['Rating'].notna()
-                        & (df['Cleaned_Feedback'] != "no comment provided")]
+            scored = df[(df['Attended'] == True) & df['Rating'].notna() & df['Senti_Score'].notna()]
             if len(scored) >= 10:
                 # Spearman = Pearson on ranks; suits a 1-5 ordinal rating (no SciPy needed).
                 spearman = scored['Rating'].rank().corr(scored['Senti_Score'].rank())
@@ -427,19 +572,74 @@ if not df.empty:
                                "+1 = sentiment always rises with the rating; 0 = no relationship.")
                 m2.metric("Pearson r", f"{pearson:.3f}", help="Linear correlation, shown for reference.")
                 st.caption(f"Based on {len(scored):,} individual rated comments.")
-                fig_corr = px.box(scored.assign(Rating=scored['Rating'].astype(int)), x="Rating", y="Senti_Score", title="Comment Sentiment by Star Rating",
+                fig_corr = px.box(scored.assign(Rating=scored['Rating'].astype(int)), x="Rating", y="Senti_Score",
+                                  title="Comment Sentiment by Star Rating",
                                   labels={"Rating": "Star rating", "Senti_Score": "VADER compound score"},
                                   category_orders={"Rating": [1, 2, 3, 4, 5]})
                 st.plotly_chart(fig_corr, width="stretch")
             else:
                 st.info("Not enough rated comments to compute a correlation (need at least 10).")
 
+    with tab_drill:
+        st.subheader("🔎 Event Drill-down")
+        event_choice = st.selectbox("Choose an event", event_stats.sort_values('Event_Name')['Event_Name'])
+        ev = event_stats.set_index('Event_Name').loc[event_choice]
+        edf = df[df['Event_Name'] == event_choice]
+        e_att = edf[edf['Attended'] == True]
+
+        if has_dates and pd.notna(ev['Event_Date']):
+            st.caption(f"{ev['Event_Type']} event · held {ev['Event_Date']:%d %b %Y}")
+        else:
+            st.caption(f"{ev['Event_Type']} event")
+
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("Registrations", f"{int(ev['Total_Reg'])}")
+        m2.metric("Attendance", f"{1 - ev['Drop_off_Rate']:.0%}",
+                  help=f"95% CI for drop-off: {ev['Drop_CI_Low']:.0%}–{ev['Drop_CI_High']:.0%}")
+        if pd.notna(ev['Avg_Rating']):
+            # CI goes in the label: the value box truncates long text in narrow columns.
+            ci_txt = f" (± {ev['Rating_CI']:.2f})" if pd.notna(ev['Rating_CI']) else ""
+            m3.metric(f"Avg rating{ci_txt}", f"{ev['Avg_Rating']:.2f}",
+                      help=f"From {ev['N_Ratings']} ratings; ± is the 95% confidence interval.")
+        else:
+            m3.metric("Avg rating", "–")
+        m4.metric("Rating vs mood match", f"{ev['NLP_Match']:.0%}" if pd.notna(ev['NLP_Match']) else "–")
+
+        d_left, d_right = st.columns(2)
+        with d_left:
+            dist = e_att['Rating'].dropna().astype(int).value_counts().reindex(range(1, 6), fill_value=0)
+            st.plotly_chart(px.bar(x=dist.index, y=dist.values, title="Rating Distribution",
+                                   labels={"x": "Stars", "y": "Responses"}), width="stretch")
+        with d_right:
+            st.write("**What people mention**")
+            k_pos, k_neg = st.columns(2)
+            with k_pos:
+                st.caption("In positive comments")
+                st.dataframe(top_keywords(e_att.loc[e_att['Sentiment'] == "Positive", 'Cleaned_Feedback']),
+                             hide_index=True, width="stretch")
+            with k_neg:
+                st.caption("In negative comments")
+                st.dataframe(top_keywords(e_att.loc[e_att['Sentiment'] == "Negative", 'Cleaned_Feedback']),
+                             hide_index=True, width="stretch")
+
+        mismatches = e_att[e_att['NLP_Alignment'] == 0][
+            ['User_ID', 'Rating', 'Feedback_Text', 'Senti_Score', 'Sentiment']].sort_values('Rating', ascending=False)
+        st.write(f"**Responses to read by hand: {len(mismatches)}** (star rating and comment disagree)")
+        if mismatches.empty:
+            st.success("Every rated comment for this event agrees with its star rating.")
+        else:
+            st.dataframe(mismatches.rename(columns={'Feedback_Text': 'Comment', 'Senti_Score': 'Sentiment score'}),
+                         hide_index=True, width="stretch")
+            st.download_button("⬇️ Download these responses (CSV)", mismatches.to_csv(index=False),
+                               file_name=f"{event_choice.lower().replace(' ', '_')}_mismatches.csv",
+                               mime="text/csv")
+
     with tab3:
         st.subheader("AI Mood Validation (Consistency Check)")
 
         st.write("""
         **How we validate the data:**
-        We use a Natural Language Processing (NLP) AI model called VADER to read the attendees' written comments. We then compare the "emotional mood" of their writing with the numerical "star rating" they clicked. 
+        We use a Natural Language Processing (NLP) AI model called VADER to read the attendees' written comments. We then compare the "emotional mood" of their writing with the numerical "star rating" they clicked.
 
         A response counts as consistent when a 4–5 star rating comes with positive text, a 1–2 star rating with
         negative text, or a 3 star rating with text that isn't strongly positive or negative. Responses with no
@@ -447,6 +647,7 @@ if not df.empty:
 
         A high match rate suggests ratings and comments tell the same story; a low one flags responses worth reading
         by hand. It is a sanity check, not proof: VADER misreads sarcasm and domain-specific wording.
+        The **Event Drill-down** tab lists the mismatched responses for each event.
         """)
         st.caption("On data from the built-in simulator, about 10% of comments are deliberately written to "
                    "contradict their rating, so the match rate there mostly reflects that injected noise.")
@@ -491,14 +692,16 @@ if not df.empty:
     with tab5:
         st.subheader("📊 Data Science Pipeline & Methodology")
 
-        st.markdown("""
+        st.markdown(f"""
         ### The Technical Journey of Your Data
-        Every time the dashboard loads, the data goes through these five steps:
+        Every time the dashboard loads, the data goes through these steps:
 
         **1. Ingestion (and optional simulation)**
-        Records are read from the **Firebase Firestore** collection `Registrations_Feedback` (newest 2,000), falling back
-        to a local CSV if Firestore is unavailable. The sidebar simulator can replace that data with synthetic records
-        that deliberately include noise: missing ratings, comments that contradict their rating, and duplicate rows.
+        Records are read from the **Firebase Firestore** collection `Registrations_Feedback` (newest
+        {FIRESTORE_READ_LIMIT:,}, with a warning if more exist), falling back to a local CSV if Firestore is
+        unavailable. The sidebar simulator can replace that data with synthetic records. Each simulated event gets
+        its own fixed attendance rate, typical rating and date, and people can register for several events. The
+        simulator deliberately adds noise: missing ratings, comments that contradict their rating, and duplicate rows.
 
         **2. Cleaning**
         Exact duplicates (same user, event and comment) are removed. Ratings from people who did not attend are
@@ -506,7 +709,8 @@ if not df.empty:
 
         **3. Sentiment scoring**
         **VADER**, a rule-based sentiment model, gives each comment a compound score from −1 (very negative) to +1
-        (very positive). It reads the original text, since punctuation and capitals affect its scores.
+        (very positive). It reads the original text, since punctuation and capitals affect its scores. Responses
+        without a comment are not scored.
 
         **4. Feature engineering**
         Per event: registrations, attendance, **drop-off rate** (share of registrants who didn't attend), average
@@ -514,12 +718,19 @@ if not df.empty:
         agrees with the star rating.
 
         **5. Statistics**
-        **Standard deviation** shows how much attendees disagreed about an event; **skewness** shows whether a minority
-        of unusually high or low ratings is pulling the average. A **rank correlation** over individual responses
-        measures how closely comment sentiment tracks star ratings.
+        Every event average comes with its sample size and a **95% confidence interval** (Wilson interval for
+        drop-off). Rankings use **adjusted averages** that blend each event with {PRIOR_WEIGHT} responses' worth of
+        the overall average, so small events can't win or lose by chance. **Standard deviation** shows how much
+        attendees disagreed; **skewness** shows whether a minority of unusually high or low ratings is pulling the
+        average. A **rank correlation** over individual responses measures how closely comment sentiment tracks
+        star ratings.
+
+        **6. Drill-down**
+        For each event: the rating distribution, the most-mentioned words in positive and negative comments, and
+        the responses whose rating and comment disagree, downloadable as CSV.
 
         *Limitations:* the data is simulated, so the results show how the pipeline behaves rather than real attendee
-        opinion. Event-level statistics rest on a handful of events, and VADER can misread sarcasm.
+        opinion. Comparisons between event types rest on a handful of events, and VADER can misread sarcasm.
         """)
 
         st.info("**Tech Stack:** Python 3, Streamlit, Firebase Admin SDK, VADER, pandas, Plotly.")

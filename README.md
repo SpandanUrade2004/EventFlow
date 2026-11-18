@@ -4,6 +4,20 @@ A Streamlit dashboard for event feedback. It loads registration, attendance, sta
 from Firebase Firestore (or a local CSV), scores each comment with VADER sentiment analysis, checks whether
 the comment's mood matches its star rating, and charts the results per event.
 
+## What's new in v2
+
+- **Realistic simulation:** each simulated event has its own fixed attendance rate, typical rating and date, and
+  people can register for several events. (In v1 every event was statistically identical.)
+- **Rankings that account for sample size:** Top Performer and Critical Drop-off use averages adjusted for how
+  many responses each event has, and event averages show 95% confidence intervals (also as error bars on the
+  Performance Matrix).
+- **Adjustable matrix thresholds:** fixed targets or event medians, set in the sidebar.
+- **Event Drill-down tab:** rating distribution, most-mentioned words in positive and negative comments, and
+  the responses whose rating and comment disagree, downloadable as CSV.
+- **Read-limit warning** when Firestore holds more records than the dashboard reads (5,000).
+
+v1.0 is tagged in git as `v1.0`.
+
 ## Run it
 
 ```bash
