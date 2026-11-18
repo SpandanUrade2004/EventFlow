@@ -373,10 +373,12 @@ if not df.empty:
             **How to read this matrix:**
             We group events into four "Performance Zones" to help management make decisions:
 
-            - **🌟 Stars (Bottom Left):** Low drop-off and high satisfaction. Keep doing exactly this!
-            - **⚠️ Mass Outreach (Top Left):** Low drop-off but poor execution. The marketing worked, but the event failed to deliver.
-            - **💎 Hidden Gems (Bottom Right):** High drop-off, but those who stayed loved it. Needs better targeted marketing to the right audience next time.
-            - **🛑 The Risks (Top Right):** High drop-off and low satisfaction. Urgent re-evaluation needed.
+            - **🌟 Stars (Top Left):** Low drop-off and high satisfaction. Keep doing exactly this!
+            - **⚠️ Mass Outreach (Bottom Left):** Low drop-off but poor execution. The marketing worked, but the event failed to deliver.
+            - **💎 Hidden Gems (Top Right):** High drop-off, but those who stayed loved it. Needs better targeted marketing to the right audience next time.
+            - **🛑 The Risks (Bottom Right):** High drop-off and low satisfaction. Urgent re-evaluation needed.
+
+            *Dashed lines: 3.5-star satisfaction target and 30% drop-off threshold.*
             """)
 
     with tab2:
