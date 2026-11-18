@@ -7,7 +7,7 @@ import plotly.express as px
 import streamlit as st
 
 from eventflow import __version__ as APP_VERSION
-from eventflow import storage
+from eventflow import ingest, storage
 from eventflow.analytics import (
     PRIOR_WEIGHT,
     build_event_stats,
@@ -16,7 +16,7 @@ from eventflow.analytics import (
     segment_stats,
     top_keywords,
 )
-from eventflow.processing import process
+from eventflow.processing import SIMULATED, process
 from eventflow.simulation import DEFAULT_EVENTS, PROFILES, generate_records
 from eventflow.storage import FIRESTORE_READ_LIMIT
 
@@ -38,6 +38,8 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+st.title("📊 EventFlow: Event Feedback Analytics Dashboard")
+
 
 # --- 2. ADMIN MODE ---
 # The simulator wipes Firestore, so it is only shown when explicitly enabled. A deployed copy stays read-only.
@@ -51,6 +53,8 @@ def _admin_mode():
 
 
 ADMIN_MODE = _admin_mode()
+COLLECTION = storage.collection_name(st.secrets)
+UPLOAD = "Upload your own file"
 
 
 # --- 3. DATA LOADING ---
@@ -62,7 +66,7 @@ def get_processed_data(source_preference):
         ok, msg = storage.init_firebase(st.secrets)
         if ok:
             try:
-                df, truncated = storage.fetch_firestore()
+                df, truncated = storage.fetch_firestore(COLLECTION)
                 if not df.empty:
                     source_label = "Firebase Cloud"
             except Exception as e:
@@ -89,7 +93,7 @@ def push_simulated_data(num_records, event_names, profile="Realistic"):
         try:
             records = generate_records(num_records, event_names, profile)
             # Same records (duplicates included) go to both Firestore and the CSV fallback.
-            storage.replace_firestore(records, progress=status.write)
+            storage.replace_firestore(records, COLLECTION, progress=status.write)
             storage.save_csv(records)
             status.update(label="✅ Noise-Injected Pipeline Refreshed!", state="complete")
             return True
@@ -99,17 +103,90 @@ def push_simulated_data(num_records, event_names, profile="Realistic"):
             return False
 
 
+@st.cache_data(show_spinner="Reading your file...")
+def read_upload(data, filename):
+    return ingest.read_table(data, filename)
+
+
+@st.cache_data(show_spinner="Checking your data and scoring comments...")
+def prepare_upload(data, filename, mapping_items, rating_scale):
+    clean, report = ingest.prepare_upload(read_upload(data, filename), dict(mapping_items), rating_scale)
+    return (process(clean) if report.ok else clean), report
+
+
+def upload_flow(uploaded):
+    """Column matching and validation for an uploaded file. Returns the analysis-ready frame (or empty)."""
+    data = uploaded.getvalue()
+    try:
+        raw = read_upload(data, uploaded.name)
+    except Exception as e:
+        st.error(f"Couldn't read **{uploaded.name}**: {e}")
+        return pd.DataFrame()
+    if raw.empty:
+        st.error(f"**{uploaded.name}** has no data rows.")
+        return pd.DataFrame()
+
+    guess = ingest.guess_mapping(raw.columns)
+    options = [ingest.NOT_IN_FILE] + list(raw.columns)
+    file_key = f"{uploaded.name}-{len(data)}"  # new file -> fresh widget defaults
+
+    with st.expander(f"📥 Your data: **{uploaded.name}** ({len(raw):,} rows). Check how the columns were matched",
+                     expanded=True):
+        st.caption("Your columns were matched automatically. Correct any that are wrong. * = required. "
+                   "Columns you don't map are ignored.")
+        mapping, grid = {}, st.columns(2)
+        for i, f in enumerate(ingest.FIELDS):
+            default = guess.get(f.name, ingest.NOT_IN_FILE)
+            choice = grid[i % 2].selectbox(f.label + (" *" if f.required else ""), options,
+                                           index=options.index(default), help=f.help,
+                                           key=f"map-{file_key}-{f.name}")
+            if choice != ingest.NOT_IN_FILE:
+                mapping[f.name] = choice
+        scale_default = ingest.guess_rating_scale(raw, mapping.get("Rating"))
+        rating_scale = st.radio("Ratings are out of", [5, 10], index=[5, 10].index(scale_default), horizontal=True,
+                                key=f"scale-{file_key}", disabled="Rating" not in mapping)
+        st.write("**Preview** (first 5 rows of your file)")
+        st.dataframe(raw.head(5), hide_index=True, width="stretch")
+
+    used = pd.Series(list(mapping.values()))
+    if used.duplicated().any():
+        st.error(f"Each column can only be matched once: {', '.join(used[used.duplicated()].unique())}.")
+        return pd.DataFrame()
+
+    df, report = prepare_upload(data, uploaded.name, tuple(sorted(mapping.items())), rating_scale)
+    for msg in report.errors:
+        st.error(msg)
+    if report.ok:
+        st.success(f"Analysing {report.rows_out:,} of {report.rows_in:,} rows from **{uploaded.name}**. "
+                   "The file stays in this browser session and is not saved anywhere.")
+    for msg in report.warnings:
+        st.warning(msg)
+    for msg in report.notes:
+        st.info(msg)
+    return df if report.ok else pd.DataFrame()
+
+
 # --- 4. SIDEBAR ---
 st.sidebar.header("🛡️ System Management")
 st.sidebar.caption(f"EventFlow v{APP_VERSION}")
-if 'source_pref' not in st.session_state:
-    st.session_state.source_pref = "Cloud (Auto-Fallback)"
+source_pref = st.sidebar.radio("Data source", ["Cloud (Auto-Fallback)", "Firebase Cloud Only", "Local CSV Only",
+                                               UPLOAD], key="source_pref")
 
-st.session_state.source_pref = st.sidebar.radio("Active Pipeline Selection",
-                                                ["Cloud (Auto-Fallback)", "Firebase Cloud Only", "Local CSV Only"])
+uploaded = None
+if source_pref == UPLOAD:
+    uploaded = st.sidebar.file_uploader("CSV or Excel file", type=["csv", "xlsx", "xls"],
+                                        help="E.g. a Google Forms or Microsoft Forms export, or a registration "
+                                             "spreadsheet. Processed in this session only.")
+    st.sidebar.download_button("⬇️ Download template CSV", ingest.template_csv(), "eventflow_template.csv",
+                               "text/csv", help="An example file showing the columns EventFlow understands.")
+    df, data_source, last_error, was_truncated = pd.DataFrame(), "Upload", None, False
+    if uploaded is not None:
+        df = upload_flow(uploaded)
+        data_source = f"Upload: {uploaded.name}"
+else:
+    df, data_source, last_error, was_truncated = get_processed_data(source_pref)
 
-df, data_source, last_error, was_truncated = get_processed_data(st.session_state.source_pref)
-
+is_simulated = not df.empty and (df['Source'] == SIMULATED).any()
 badge_class = "cloud-source" if "Cloud" in data_source else "local-source"
 st.sidebar.markdown(f'<div class="source-badge {badge_class}">Hub: {data_source}</div>', unsafe_allow_html=True)
 
@@ -129,7 +206,7 @@ if ADMIN_MODE:
         sim_target = st.radio("Write to", ["Local CSV only", "Firestore + local CSV"],
                               help="Local CSV only never touches Firestore (same as running data_generator.py).")
         if sim_target == "Firestore + local CSV":
-            st.warning("This permanently deletes **every document** in the Firestore `Registrations_Feedback` "
+            st.warning(f"This permanently deletes **every document** in the Firestore `{COLLECTION}` "
                        "collection and overwrites the local CSV. It cannot be undone.")
         else:
             st.info("Overwrites the local sample CSV. Firestore is not touched. "
@@ -147,13 +224,25 @@ if ADMIN_MODE:
             elif push_simulated_data(num_to_gen, events, sim_profile):
                 st.cache_data.clear()
                 st.rerun()
+    if uploaded is not None and not df.empty:
+        with st.sidebar.expander("☁️ Save upload to Firestore (admin)", expanded=False):
+            st.warning(f"Replaces **every document** in the Firestore `{COLLECTION}` collection with the "
+                       f"{len(df):,} uploaded rows. It cannot be undone.")
+            confirm_save = st.checkbox("I understand, replace the Firestore data", key="confirm_save")
+            if st.button("Save to Firestore", disabled=not confirm_save):
+                ok, msg = storage.init_firebase(st.secrets)
+                if not ok:
+                    st.error(f"Firebase Connection Failed: {msg}")
+                else:
+                    with st.spinner("Writing to Firestore..."):
+                        storage.replace_firestore(storage.records_from_frame(df), COLLECTION, progress=lambda m: None)
+                    st.cache_data.clear()
+                    st.success("Saved. Switch the data source to Cloud to see it.")
 else:
     st.sidebar.caption("🔒 Read-only mode. The data simulator is hidden; set `EVENTFLOW_ADMIN=1` to enable it.")
 
 # --- 5. EXECUTIVE INSIGHT PANEL ---
 if not df.empty:
-    st.title("📊 EventFlow: Event Feedback Analytics Dashboard")
-
     if was_truncated:
         st.warning(f"Showing only the newest {FIRESTORE_READ_LIMIT:,} records. Firestore holds more, so "
                    f"totals and averages may not cover everything.")
@@ -212,7 +301,7 @@ if not df.empty:
         "📉 Student Consistency",
         "🔎 Event Drill-down",
         "🧠 AI Mood Validation",
-        "🏗️ Tech vs. General",
+        "🏗️ Event Categories",
         "📑 Pipeline Journey"
     ])
 
@@ -386,7 +475,8 @@ if not df.empty:
         by hand. It is a sanity check, not proof: VADER misreads sarcasm and domain-specific wording.
         The **Event Drill-down** tab lists the mismatched responses for each event.
         """)
-        st.caption("On data from the built-in simulator, about 10% of comments are deliberately written to "
+        if is_simulated:
+            st.caption("On data from the built-in simulator, about 10% of comments are deliberately written to "
                    "contradict their rating, so the match rate there mostly reflects that injected noise.")
 
         col_pie, col_bar = st.columns(2)
@@ -401,9 +491,10 @@ if not df.empty:
             st.plotly_chart(fig_align, width="stretch")
 
     with tab4:
-        st.subheader("🏗️ Segment Analysis: Technical vs. General")
+        st.subheader("🏗️ Segment Analysis: Event Categories")
         st.markdown(
-            "This compares how we execute highly technical workshops versus general networking events, helping accurately allocate future budgets and resources.")
+            "Compares event categories to help allocate future budgets and resources. Categories come from your "
+            "data when it has them; otherwise events are labelled Technical or General from their names.")
 
         # Aggregated from individual rows so each response counts equally.
         seg_stats = segment_stats(df)
@@ -412,12 +503,12 @@ if not df.empty:
         with c_seg1:
             st.write("**Engagement per Category**")
             st.plotly_chart(
-                px.bar(seg_stats, x='Event_Type', y='Agg_Engagement', color='Event_Type', title="Engagement % by Type"),
+                px.bar(seg_stats, x='Event_Type', y='Agg_Engagement', color='Event_Type', title="Attendance % by Category"),
                 width="stretch")
         with c_seg2:
             st.write("**Sentiment per Category**")
             st.plotly_chart(
-                px.bar(seg_stats, x='Event_Type', y='Avg_Sentiment', color='Event_Type', title="Mood by Type"),
+                px.bar(seg_stats, x='Event_Type', y='Avg_Sentiment', color='Event_Type', title="Average Comment Sentiment by Category"),
                 width="stretch")
 
     with tab5:
@@ -427,16 +518,18 @@ if not df.empty:
         ### The Technical Journey of Your Data
         Every time the dashboard loads, the data goes through these steps:
 
-        **1. Ingestion (and optional simulation)**
-        Records are read from the **Firebase Firestore** collection `Registrations_Feedback` (newest
-        {FIRESTORE_READ_LIMIT:,}, with a warning if more exist), falling back to a local CSV if Firestore is
-        unavailable. The sidebar simulator can replace that data with synthetic records. Each simulated event gets
+        **1. Ingestion**
+        Records come from one of three places: the **Firebase Firestore** collection `{COLLECTION}` (newest
+        {FIRESTORE_READ_LIMIT:,}, with a warning if more exist), a local CSV, or **a file you upload** (CSV or
+        Excel). Uploads are matched to EventFlow's columns, converted (Yes/No, "4 stars", 1–10 scales, dates) and
+        validated, with a report of anything changed or skipped. Admins can also generate simulated data. Each simulated event gets
         its own fixed attendance rate, typical rating and date, and people can register for several events. The
         simulator deliberately adds noise: missing ratings, comments that contradict their rating, and duplicate rows.
 
         **2. Cleaning**
         Exact duplicates (same user, event and comment) are removed. Ratings from people who did not attend are
-        discarded, missing comments are marked "No Comment Provided", and event types are re-derived from event names.
+        discarded and missing comments are marked "No Comment Provided". Your own event categories are kept; events
+        without one are labelled Technical or General from their names.
 
         **3. Sentiment scoring**
         **VADER**, a rule-based sentiment model, gives each comment a compound score from −1 (very negative) to +1
@@ -460,8 +553,9 @@ if not df.empty:
         For each event: the rating distribution, the most-mentioned words in positive and negative comments, and
         the responses whose rating and comment disagree, downloadable as CSV.
 
-        *Limitations:* the data is simulated, so the results show how the pipeline behaves rather than real attendee
-        opinion. Comparisons between event types rest on a handful of events, and VADER can misread sarcasm.
+        *Limitations:* {"this data is simulated, so the results show how the pipeline behaves rather than real "
+        "attendee opinion. " if is_simulated else ""}VADER only understands English and can misread sarcasm, and
+        comparisons between event categories rest on however many events each category has.
         """)
 
         st.info("**Tech Stack:** Python 3, Streamlit, Firebase Admin SDK, VADER, pandas, Plotly.")
@@ -473,8 +567,29 @@ if not df.empty:
         st.dataframe(df.sort_values(by='Timestamp', ascending=False) if 'Timestamp' in df.columns else df,
                      width="stretch")
 
-else:
-    st.warning("⚠️ No data available. Generate sample data with `python data_generator.py`, "
-               "or enable admin mode (`EVENTFLOW_ADMIN=1`) and use Wipe & Regenerate in the sidebar.")
+elif source_pref == UPLOAD and uploaded is None:
+    st.info("""
+    ### 📥 Analyse your own event data
+    Upload a **CSV or Excel** file in the sidebar, for example a Google Forms or Microsoft Forms export or a
+    registration spreadsheet. Your column names don't need to match: you'll be shown how they were matched and
+    can correct them.
+
+    | Column | Needed? | Example |
+    |---|---|---|
+    | Event name | **required** | AI Workshop |
+    | Star rating | rating and/or comment | 4, "4 stars", 8 (out of 10) |
+    | Comment | rating and/or comment | "Great speaker, venue was cold" |
+    | Attended? | optional | Yes / No |
+    | Person ID | optional | p001 (anonymous IDs recommended) |
+    | Event category | optional | Workshop |
+    | Event date | optional | 2026-10-05 |
+
+    Download the **template CSV** in the sidebar for an example. Your file is analysed in this session only and
+    is not stored.
+    """)
+elif not (source_pref == UPLOAD and uploaded is not None):  # upload problems are reported by upload_flow
+    st.warning("⚠️ No data available. Upload your own file (data source: **Upload your own file**), "
+               "generate sample data with `python data_generator.py`, or enable admin mode "
+               "(`EVENTFLOW_ADMIN=1`) and use Wipe & Regenerate in the sidebar.")
     if last_error:
         st.error(f"Last Pipeline Alert: {last_error}")

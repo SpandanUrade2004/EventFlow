@@ -97,6 +97,7 @@ def generate_records(num_records, event_names=None, profile="Realistic", seed=No
             "Attended": attended,
             "Rating": rating,
             "Feedback_Text": feedback,
+            "Source": "simulated",
         }
         records.append(data)
         if random.random() < DUPLICATE_RATE:

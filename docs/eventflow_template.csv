@@ -1,0 +1,6 @@
+User_ID,Event_Name,Event_Type,Event_Date,Attended,Rating,Feedback_Text
+p001,AI Workshop,Workshop,2026-10-05,Yes,5,"Brilliant speaker, learned a lot!"
+p002,AI Workshop,Workshop,2026-10-05,Yes,3,Good content but it started late.
+p003,AI Workshop,Workshop,2026-10-05,No,,
+p001,Music Fest,Cultural,2026-10-19,Yes,4,"Great vibe, venue was a bit crowded."
+p004,Music Fest,Cultural,2026-10-19,Yes,2,Sound system kept failing.

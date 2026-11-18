@@ -10,6 +10,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from eventflow.simulation import classify_event
 
 NO_COMMENT = "No Comment Provided"
+SIMULATED = "simulated"  # value of the Source column for simulator output
 MIXED_BAND = 0.5  # |VADER compound| below this counts as consistent with a 3-star rating
 _PUNCT = re.compile(f"[{re.escape(string.punctuation)}]")
 _analyzer = SentimentIntensityAnalyzer()
@@ -42,8 +43,17 @@ def process(df):
     """Normalises schema, removes duplicates, handles nulls and adds sentiment features. Returns a new frame."""
     df = df.copy()
 
-    # Schema normalisation: older data may lack columns or carry the old Event_Type rule.
-    df['Event_Type'] = df['Event_Name'].apply(classify_event)
+    # Schema normalisation. Data without a Source column predates uploads, so it is simulated.
+    df['Source'] = df['Source'].fillna(SIMULATED) if 'Source' in df.columns else SIMULATED
+    # Event types: keep the user's own categories for uploaded data; simulated data (or rows with no
+    # category) gets the keyword rule, which also corrects labels written by the old substring rule.
+    derived = df['Event_Name'].apply(classify_event)
+    if 'Event_Type' in df.columns:
+        own = df['Event_Type'].astype('string').str.strip()
+        keep = (df['Source'] != SIMULATED) & own.notna() & (own != "")
+        df['Event_Type'] = own.where(keep, derived).astype(object)
+    else:
+        df['Event_Type'] = derived
     if 'Event_Date' in df.columns:
         df['Event_Date'] = pd.to_datetime(df['Event_Date'], errors='coerce')
     if 'Timestamp' not in df.columns:

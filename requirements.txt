@@ -4,4 +4,4 @@ numpy>=2.0,<3
 firebase-admin>=7.0,<8
 vaderSentiment==3.3.2
 plotly>=6.0,<7
-Faker>=30
+openpyxl>=3.1,<4

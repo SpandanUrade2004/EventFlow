@@ -14,3 +14,9 @@ venv/
 .vscode/
 .DS_Store
 __MACOSX/
+
+# Real attendee data: keep it out of git (put your files in data/)
+data/
+uploads/
+*.xlsx
+*.xls
